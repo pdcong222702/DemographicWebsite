@@ -1,0 +1,57 @@
+﻿@model Demographic_Website.Models.ResidenceBooklet
+
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h1>Edit</h1>
+
+<h4>ResidenceBooklet</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="ResidenceBookletId" />
+            <div class="form-group">
+                <label asp-for="ResidenceBookletCode" class="control-label"></label>
+                <input asp-for="ResidenceBookletCode" class="form-control" />
+                <span asp-validation-for="ResidenceBookletCode" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Address" class="control-label"></label>
+                <input asp-for="Address" class="form-control" />
+                <span asp-validation-for="Address" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="MoveDate" class="control-label"></label>
+                <input asp-for="MoveDate" class="form-control" />
+                <span asp-validation-for="MoveDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="MoveReason" class="control-label"></label>
+                <input asp-for="MoveReason" class="form-control" />
+                <span asp-validation-for="MoveReason" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="BookletArea" class="control-label"></label>
+                <input asp-for="BookletArea" class="form-control" />
+                <span asp-validation-for="BookletArea" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CreateDate" class="control-label"></label>
+                <input asp-for="CreateDate" class="form-control" />
+                <span asp-validation-for="CreateDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+

@@ -1,0 +1,142 @@
+﻿@model Demographic_Website.Models.Population
+
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+<h4 style="text-align:center;margin-top:20px;color:#01579b;">Thay đổi thông tin nhân khẩu</h4>
+<hr />
+<div>
+    <div class="container shadow rounded" style="background-color:#fff;border-radius:5px;">
+        <form asp-area="Admin" asp-controller="Populations" asp-action="Edit" asp-route-id="@Model.PopulationId">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="PopulationId" />
+            <div class="contentFormEdit" style="padding-top:30px;">
+                <div>
+                    <div class="form-group row">
+                        <label asp-for="PopulationName" class="control-label fw-bold col-sm-3">Họ tên</label>
+                        <input asp-for="PopulationName" class="form-control col-sm-9" />
+                        <span asp-validation-for="PopulationName" class="text-danger"></span>
+                    </div>
+                    <div class="form-group row">
+                        <label asp-for="PopulationNickName" class="control-label fw-bold col-sm-3">Tên gọi khác</label>
+                        <input asp-for="PopulationNickName" class="form-control" />
+                        <span asp-validation-for="PopulationNickName" class="text-danger"></span>
+                    </div>
+                    <div class="form-group row">
+                        <label asp-for="DateOfBirth" class="control-label fw-bold col-sm-3">Ngày sinh</label>
+                        <input asp-for="DateOfBirth" class="form-control" />
+                        <span asp-validation-for="DateOfBirth" class="text-danger"></span>
+                    </div>
+                    <div class="form-group row">
+                        <label asp-for="Gender" class="control-label fw-bold col-sm-3">Giới tính</label>
+                        <select class="form-select" asp-for="Gender">
+                            <option value="True">Nam</option>
+                            <option value="False">Nữ</option>
+                            <option value="Khác">Khác</option>
+                        </select>
+                        <span asp-validation-for="Gender" class="text-danger"></span>
+                    </div>
+                    <div class="form-group row">
+                        <label asp-for="BirthPlace" class="control-label fw-bold col-sm-3">Nơi sinh</label>
+                        <input asp-for="BirthPlace" class="form-control" />
+                        <span asp-validation-for="BirthPlace" class="text-danger"></span>
+                    </div>
+                    <div class="form-group row">
+                        <label asp-for="Ethnicity" class="control-label fw-bold col-sm-3">Dân tộc</label>
+                        <input asp-for="Ethnicity" class="form-control" />
+                        <span asp-validation-for="Ethnicity" class="text-danger"></span>
+                    </div>
+                    <div class="form-group row">
+                        <label asp-for="Religion" class="control-label fw-bold col-sm-3">Tôn giáo</label>
+                        <input asp-for="Religion" class="form-control" />
+                        <span asp-validation-for="Religion" class="text-danger"></span>
+                    </div>
+                </div>
+                <div>
+                    <div class="form-group row">
+                        <label asp-for="CitizenIdentificationCard" class="control-label fw-bold col-sm-3">CMND/CCCD</label>
+                        <input asp-for="CitizenIdentificationCard" class="form-control" />
+                        <span asp-validation-for="CitizenIdentificationCard" class="text-danger"></span>
+                    </div>
+                    <div class="form-group row">
+                        <label asp-for="DateOfIssue" class="control-label fw-bold col-sm-3">Ngày cấp</label>
+                        <input asp-for="DateOfIssue" class="form-control" />
+                        <span asp-validation-for="DateOfIssue" class="text-danger"></span>
+                    </div>
+                    <div class="form-group row">
+                        <label asp-for="PlaceOfIssue" class="control-label fw-bold col-sm-3">Nơi cấp</label>
+                        <input asp-for="PlaceOfIssue" class="form-control " />
+                        <span asp-validation-for="PlaceOfIssue" class="text-danger"></span>
+                    </div>
+                    <div class="form-group row">
+                        <label asp-for="CreatedDate" class="control-label fw-bold col-sm-3">Ngày vào sổ</label>
+                        <input asp-for="CreatedDate" class="form-control" />
+                        <span asp-validation-for="CreatedDate" class="text-danger"></span>
+                    </div>
+                    <div class="form-group row">
+                        <label asp-for="Occupation" class="control-label fw-bold col-sm-3">Nghề nghiệp</label>
+                        <input asp-for="Occupation" class="form-control" />
+                        <span asp-validation-for="Occupation" class="text-danger"></span>
+                    </div>
+                    <div class="form-group row">
+                        <label asp-for="WorkPlace" class="control-label fw-bold col-sm-3">Nơi làm việc</label>
+                        <input asp-for="WorkPlace" class="form-control" />
+                        <span asp-validation-for="WorkPlace" class="text-danger"></span>
+                    </div>
+                    <div class="form-group row">
+                        <label asp-for="Relationship" class="control-label fw-bold col-sm-3" style="width:200px;">Quan hệ với chủ hộ</label>
+                        <input asp-for="Relationship" class="form-control" />
+                        <span asp-validation-for="Relationship" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+            <input asp-for="Alive" type="hidden" value="True" class="form-control" />
+            <input type="hidden" asp-for="ResidenceBookletId" value="@Model.ResidenceBookletId" class="form-control" asp-items="ViewBag.ResidenceBookletId"></input>
+            <input asp-for="Image" value="@Model.Image" type="hidden" class="form-control" />
+            <div class="form-group buttons" style="padding-bottom:20px">
+                <button type="button" data-bs-toggle="modal" data-bs-target="#DeadModal" style="margin-right:20px;" class="btn btn-primary">Thay đổi thông tin</button>
+                <a href="/chi-tiet-so-ho-khau/@Model.ResidenceBookletId" class="btn btn-secondary">Quay lại</a>
+            </div>
+            <div class="modal" id="DeadModal">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+
+                        <!-- Modal Header -->
+                        <div class="modal-header btn btn-danger">
+                            <h4 class="modal-title text-light"><i class='bx bx-error' style="font-size:1.5rem"></i>Bạn có chắc về những thông tin đã thay đổi!</h4>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                        </div>
+                        <!-- Modal footer -->
+                        <div class="modal-footer">
+                            <button type="submit" class="alive btn btn-danger">Xác nhận</button>
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Hủy bỏ</button>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Style{
+    <style>
+        .contentFormEdit{
+            display: flex;
+            justify-content: space-around;
+            margin-bottom: 20px;
+        }
+        .fw-bold {
+            min-width: 170px;
+        }
+
+        .buttons{
+            display:flex;
+            justify-content:flex-end;
+            margin-right:80px;
+        }
+    </style>
+}

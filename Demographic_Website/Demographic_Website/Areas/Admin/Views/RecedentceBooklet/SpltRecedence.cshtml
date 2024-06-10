@@ -1,0 +1,241 @@
+﻿@using Demographic_Website.ModelViews
+@model Demographic_Website.Models.Population
+@{
+    ViewData["Title"] = "SpltRecedence";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+    var result = ViewData["Population"] as List<Population>;
+    List<Population> populations = result;
+}
+
+<button type="button" class="btn btn-primary form-add" data-bs-toggle="modal" data-bs-target="#addRecedence">
+    <i class='bx bx-plus'></i>Thêm mới sổ hộ khẩu
+</button>
+
+<form asp-area="Admin" asp-controller="RecedentceBooklet"
+      asp-action="SpltRecedence" method="post">
+    <div class="modal" id="addRecedence">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content">
+                <!-- Modal Header -->
+                <div class="modal-header">
+                    <h4 class="modal-title">Thêm mới sổ hộ khẩu</h4>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <!-- Modal body -->
+                <div class="modal-body" style="display: flex; justify-content: space-between">
+                    <div class="form-group row">
+                        <label class="col-sm-6 col-form-label fw-bold">Mã hộ khẩu</label>
+                        <div class="modal-body-add">
+                            <input type="text"
+                                   class="form-control" id="ResidenceBookletCode"
+                                   name="ResidenceBookletCode"
+                                   placeholder="Mã hộ khẩu" />
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-sm-6 col-form-label fw-bold">Mã khu vực</label>
+                        <select class="form-select" name="BookletArea" id="BookletArea">
+                            <option value="KV1">KV1</option>
+                            <option value="KV2">KV2</option>
+                            <option value="KV2-NT">KV2-NT</option>
+                            <option value="KV3">KV3</option>
+                        </select>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-sm-6 col-form-label fw-bold">Địa chỉ</label>
+                        <div class="modal-body-add">
+                            <input type="text" name="Address" id="Address"
+                                   class="form-control"
+                                   required
+                                   placeholder="Địa chỉ hộ khẩu" />
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Modal footer -->
+                <div class="modal-footer">
+                    <button type="button"
+                            id="addRecedence"
+                            class="btn btn-primary">
+                        Xác nhận
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+
+<div class="row mt-3" id="container-population">
+    <form asp-area="Admin" asp-controller="RecedentceBooklet"
+          asp-action="SpltRecedence" method="post">
+        <div class="modal-body" style="display: flex; justify-content: space-between">
+            <div class="form-group row">
+                <label class="col-sm-6 col-form-label fw-bold">Mã sổ hộ khẩu</label>
+                <div class="modal-body-add">
+                    <input type="text"
+                           class="form-control" id="ResidenceBookletCode"
+                           name="ResidenceBookletCode"
+                           placeholder="Mã sổ hộ khẩu" />
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-sm-6 col-form-label fw-bold">Mã khu vực</label>
+                <select class="form-select" name="BookletArea" id="BookletArea">
+                    <option value="KV1">KV1</option>
+                    <option value="KV2">KV2</option>
+                    <option value="KV2-NT">KV2-NT</option>
+                    <option value="KV3">KV3</option>
+                </select>
+            </div>
+            <div class="form-group row">
+                <label class="col-sm-6 col-form-label fw-bold">Địa chỉ</label>
+                <div class="modal-body-add">
+                    <input type="text" name="Address" id="Address"
+                           class="form-control"
+                           required
+                           placeholder="Địa chỉ hộ khẩu" />
+                </div>
+            </div>
+        </div>
+        <div style="display:flex;justify-content:space-around;">
+            @foreach (var item in populations)
+            {
+                var idSelector = "myId" + item.CitizenIdentificationCard;
+                <div>
+                    <div class="profile-card">
+                        <div class="image">
+                            <img src="~/images/populations/@item.Image" alt="" class="profile-img">
+                        </div>
+                        <div class="text-data">
+                            <span class="name">
+                                @item.PopulationName
+                            </span>
+                            <span class="job">
+                                @item.Relationship
+                            </span>
+                            <span class="job">
+                                @if (item.Alive == false)
+                                {
+                                    <p data-dead="@item.PopulationId" class="btn btn-danger dead">Đã chết</p>
+                                }
+                                else
+                                {
+                                    <p data-alive="@item.PopulationId" class="btn btn-success alive">Còn sống</p>
+                                }
+                            </span>
+                        </div>
+                        <div class="media-button">
+                            <div class="wrap-info">
+                                <p>Họ tên: <strong>@item.PopulationName</strong></p>
+                                <p>Tên gọi khác: <strong>@item.PopulationNickName</strong></p>
+                            </div>
+                            <div class="wrap-info">
+                                <p>Ngày sinh: <strong>@item.DateOfBirth.Value.ToShortDateString()</strong></p>
+                                @if (item.Gender == true)
+                                {
+                                    <p>Giới tính: <strong>Nam</strong></p>
+                                }
+                                else
+                                {
+                                    <p>Giới tính: <strong>Nữ</strong></p>
+                                }
+                            </div>
+
+                            <p>Nơi sinh: <strong>@item.BirthPlace</strong></p>
+                            <div class="wrap-info">
+                                <p>Dân tộc: <strong>@item.Ethnicity</strong></p>
+                                <p>Tôn giáo: <strong>@item.Religion</strong></p>
+                            </div>
+                            <div class="wrap-info">
+                                <p>CMND/CCCD: <strong>@item.CitizenIdentificationCard</strong></p>
+                                <p>Ngày cấp: <strong>@item.DateOfIssue.Value.ToShortDateString()</strong></p>
+                            </div>
+                            <div class="wrap-info">
+                                <p>Nơi cấp: <strong>@item.PlaceOfIssue</strong></p>
+                                <p>Trình độ văn hóa: <strong>@item.EducationalLevels</strong></p>
+                            </div>
+                            <div class="wrap-info">
+                                <p>Nghề nghiệp: <strong>@item.Occupation</strong></p>
+                                <p>Ngày tạo: <strong>@item.CreatedDate.Value.ToShortDateString()</strong></p>
+                            </div>
+                        </div>
+                        <div style="height: 1px;width: 100%;background-color: black;"></div>
+                        @if (item.Relationship != "Chủ hộ")
+                        {
+                            <div style="margin-top:10px;display:flex;flex-direction:column;justify-content:flex-start;width:100%;">
+                                <div class="form-check" style="padding:0;">
+                                    <input type="checkbox" name="check" value="@item.CitizenIdentificationCard">
+                                    <label class="form-check-label">
+                                        Chọn nhân khẩu để tách
+                                    </label>
+                                </div>
+                                <div style="display:flex;">
+                                    <label>Chọn quan hệ cho nhân khẩu</label>
+                                    <select class="form-select" aria-label=".form-select-lg example"
+                                            style="margin-left: 20px;margin-top: 4px;width:200px"
+                                            name="listRelationship">
+                                        <option value="Chủ hộ">Chủ hộ</option>
+                                        <option value="Ông">Ông</option>
+                                        <option value="Bà">Bà</option>
+                                        <option value="Cha">Cha</option>
+                                        <option value="Mẹ">Mẹ</option>
+                                        <option value="Chồng">Chồng</option>
+                                        <option value="Vợ">Vợ</option>
+                                        <option value="Anh">Anh</option>
+                                        <option value="Chị">Chị</option>
+                                        <option value="Em">Em</option>
+                                        <option value="Con">Con</option>
+                                    </select>
+                                </div>
+                            </div>
+                        }
+                    </div>
+                </div>
+            }
+        </div>
+
+        <div style="width:100%;display:flex;justify-content:flex-end;">
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#myModal" style="margin-right:140px;">Tách khẩu</button>
+        </div>
+
+        <div class="modal" id="myModal">
+            <div class="modal-dialog">
+                <div class="modal-content">
+
+                    <!-- Modal Header -->
+                    <div class="modal-header btn btn-warning">
+                        <h4 class="modal-title text-light"><i class='bx bx-error' style="font-size:1.5rem"></i>Bạn có chắc về thông tin đã chọn!</h4>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                    </div>
+                    <!-- Modal footer -->
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-primary">Xác nhận</button>
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Hủy bỏ</button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+    </form>
+</div>
+
+@section Style {
+    <link href="~/css/population.css" rel="stylesheet" asp-append-version="true" />
+    <link href="~/css/stylepopulation.css" rel="stylesheet" asp-append-version="true" />
+    <script>
+        $(document).ready(function () {
+            $('#addRecedence').click(function () {
+                var booklet = {};
+                booklet.ResidenceBookletCode = $("#ResidenceBookletCode").val();
+                booklet.BookletArea = $("#BookletArea").val();
+                booklet.Address = $("#Address").val();
+                $.ajax({
+                    type: "POST",
+                    url: '/add-residence-split',
+                    data: ''
+                });
+            });
+        });
+    </script>
+}

@@ -1,0 +1,441 @@
+{
+  "Files": [
+    {
+      "Id": "D:\\Project\\ASP\\Demographic_Website\\Demographic_Website\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\Demographic_Website.bundle.scp.css",
+      "PackagePath": "staticwebassets\\Demographic_Website.bundle.scp.css"
+    },
+    {
+      "Id": "D:\\Project\\ASP\\Demographic_Website\\Demographic_Website\\wwwroot\\assets\\css\\bootstrap.min.css",
+      "PackagePath": "staticwebassets\\assets\\css\\bootstrap.min.css"
+    },
+    {
+      "Id": "D:\\Project\\ASP\\Demographic_Website\\Demographic_Website\\wwwroot\\assets\\css\\datatables.min.css",
+      "PackagePath": "staticwebassets\\assets\\css\\datatables.min.css"
+    },
+    {
+      "Id": "D:\\Project\\ASP\\Demographic_Website\\Demographic_Website\\wwwroot\\assets\\css\\style.css",
+      "PackagePath": "staticwebassets\\assets\\css\\style.css"
+    },
+    {
+      "Id": "D:\\Project\\ASP\\Demographic_Website\\Demographic_Website\\wwwroot\\assets\\images\\favicon.png",
+      "PackagePath": "staticwebassets\\assets\\images\\favicon.png"
+    },
+    {
+      "Id": "D:\\Project\\ASP\\Demographic_Website\\Demographic_Website\\wwwroot\\assets\\images\\logo.png",
+      "PackagePath": "staticwebassets\\assets\\images\\logo.png"
+    },
+    {
+      "Id": "D:\\Project\\ASP\\Demographic_Website\\Demographic_Website\\wwwroot\\assets\\js\\bootstrap.bundle.min.js",
+      "PackagePath": "staticwebassets\\assets\\js\\bootstrap.bundle.min.js"
+    },
+    {
+      "Id": "D:\\Project\\ASP\\Demographic_Website\\Demographic_Website\\wwwroot\\assets\\js\\chart\\ChartEthnicity.js",
+      "PackagePath": "staticwebassets\\assets\\js\\chart\\ChartEthnicity.js"
+    },
+    {
+      "Id": "D:\\Project\\ASP\\Demographic_Website\\Demographic_Website\\wwwroot\\assets\\js\\chart\\ChartGender.js",
+      "PackagePath": "staticwebassets\\assets\\js\\chart\\ChartGender.js"
+    },
+    {
+      "Id": "D:\\Project\\ASP\\Demographic_Website\\Demographic_Website\\wwwroot\\assets\\js\\chart\\ChartRate.js",
+      "PackagePath": "staticwebassets\\assets\\js\\chart\\ChartRate.js"
+    },
+    {
+      "Id": "D:\\Project\\ASP\\Demographic_Website\\Demographic_Website\\wwwroot\\assets\\js\\chart\\chartAge.js",
+      "PackagePath": "staticwebassets\\assets\\js\\chart\\chartAge.js"
+    },
+    {
+      "Id": "D:\\Project\\ASP\\Demographic_Website\\Demographic_Website\\wwwroot\\assets\\js\\custom.js",
+      "PackagePath": "staticwebassets\\assets\\js\\custom.js"
+    },
+    {
+      "Id": "D:\\Project\\ASP\\Demographic_Website\\Demographic_Website\\wwwroot\\assets\\js\\datatables.min.js",
+      "PackagePath": "staticwebassets\\assets\\js\\datatables.min.js"
+    },
+    {
+      "Id": "D:\\Project\\ASP\\Demographic_Website\\Demographic_Website\\wwwroot\\assets\\js\\jquery-3.6.0.min.js",
+      "PackagePath": "staticwebassets\\assets\\js\\jquery-3.6.0.min.js"
+    },
+    {
+      "Id": "D:\\Project\\ASP\\Demographic_Website\\Demographic_Website\\wwwroot\\assets\\js\\js\\GetDataImage.js",
+      "PackagePath": "staticwebassets\\assets\\js\\js\\GetDataImage.js"
+    },
+    {
+      "Id": "D:\\Project\\ASP\\Demographic_Website\\Demographic_Website\\wwwroot\\assets\\js\\pdfmake.min.js",
+      "PackagePath": "staticwebassets\\assets\\js\\pdfmake.min.js"
+    },
+    {
+      "Id": "D:\\Project\\ASP\\Demographic_Website\\Demographic_Website\\wwwroot\\assets\\js\\vfs_fonts.js",
+      "PackagePath": "staticwebassets\\assets\\js\\vfs_fonts.js"
+    },
+    {
+      "Id": "D:\\Project\\ASP\\Demographic_Website\\Demographic_Website\\wwwroot\\css\\header.css",
+      "PackagePath": "staticwebassets\\css\\header.css"
+    },
+    {
+      "Id": "D:\\Project\\ASP\\Demographic_Website\\Demographic_Website\\wwwroot\\css\\population.css",
+      "PackagePath": "staticwebassets\\css\\population.css"
+    },
+    {
+      "Id": "D:\\Project\\ASP\\Demographic_Website\\Demographic_Website\\wwwroot\\css\\site.css",
+      "PackagePath": "staticwebassets\\css\\site.css"
+    },
+    {
+      "Id": "D:\\Project\\ASP\\Demographic_Website\\Demographic_Website\\wwwroot\\css\\stylebooklet.css",
+      "PackagePath": "staticwebassets\\css\\stylebooklet.css"
+    },
+    {
+      "Id": "D:\\Project\\ASP\\Demographic_Website\\Demographic_Website\\wwwroot\\css\\stylepopulation.css",
+      "PackagePath": "staticwebassets\\css\\stylepopulation.css"
+    },
+    {
+      "Id": "D:\\Project\\ASP\\Demographic_Website\\Demographic_Website\\wwwroot\\favicon.ico",
+      "PackagePath": "staticwebassets\\favicon.ico"
+    },
+    {
+      "Id": "D:\\Project\\ASP\\Demographic_Website\\Demographic_Website\\wwwroot\\images\\Xay_dung_dang_trong_sach.jpg",
+      "PackagePath": "staticwebassets\\images\\Xay_dung_dang_trong_sach.jpg"
+    },
+    {
+      "Id": "D:\\Project\\ASP\\Demographic_Website\\Demographic_Website\\wwwroot\\images\\populations\\0bxtsk2t.ogt.png",
+      "PackagePath": "staticwebassets\\images\\populations\\0bxtsk2t.ogt.png"
+    },
+    {
+      "Id": "D:\\Project\\ASP\\Demographic_Website\\Demographic_Website\\wwwroot\\images\\populations\\2zzqlvok.s0q.png",
+      "PackagePath": "staticwebassets\\images\\populations\\2zzqlvok.s0q.png"
+    },
+    {
+      "Id": "D:\\Project\\ASP\\Demographic_Website\\Demographic_Website\\wwwroot\\images\\populations\\434lznl3.vkg.png",
+      "PackagePath": "staticwebassets\\images\\populations\\434lznl3.vkg.png"
+    },
+    {
+      "Id": "D:\\Project\\ASP\\Demographic_Website\\Demographic_Website\\wwwroot\\images\\populations\\abawpnrb.tac.png",
+      "PackagePath": "staticwebassets\\images\\populations\\abawpnrb.tac.png"
+    },
+    {
+      "Id": "D:\\Project\\ASP\\Demographic_Website\\Demographic_Website\\wwwroot\\images\\populations\\dgdkb4cp.13j.jpg",
+      "PackagePath": "staticwebassets\\images\\populations\\dgdkb4cp.13j.jpg"
+    },
+    {
+      "Id": "D:\\Project\\ASP\\Demographic_Website\\Demographic_Website\\wwwroot\\images\\populations\\doykixbm.m2o.jpg",
+      "PackagePath": "staticwebassets\\images\\populations\\doykixbm.m2o.jpg"
+    },
+    {
+      "Id": "D:\\Project\\ASP\\Demographic_Website\\Demographic_Website\\wwwroot\\images\\populations\\f1ipknem.aco.png",
+      "PackagePath": "staticwebassets\\images\\populations\\f1ipknem.aco.png"
+    },
+    {
+      "Id": "D:\\Project\\ASP\\Demographic_Website\\Demographic_Website\\wwwroot\\images\\populations\\gojnyqzh.4ak.png",
+      "PackagePath": "staticwebassets\\images\\populations\\gojnyqzh.4ak.png"
+    },
+    {
+      "Id": "D:\\Project\\ASP\\Demographic_Website\\Demographic_Website\\wwwroot\\images\\populations\\jmvl0jtv.gyg.jpg",
+      "PackagePath": "staticwebassets\\images\\populations\\jmvl0jtv.gyg.jpg"
+    },
+    {
+      "Id": "D:\\Project\\ASP\\Demographic_Website\\Demographic_Website\\wwwroot\\images\\populations\\jyuxqr0h.htg.jpg",
+      "PackagePath": "staticwebassets\\images\\populations\\jyuxqr0h.htg.jpg"
+    },
+    {
+      "Id": "D:\\Project\\ASP\\Demographic_Website\\Demographic_Website\\wwwroot\\images\\populations\\mk1tjeke.afg.jpg",
+      "PackagePath": "staticwebassets\\images\\populations\\mk1tjeke.afg.jpg"
+    },
+    {
+      "Id": "D:\\Project\\ASP\\Demographic_Website\\Demographic_Website\\wwwroot\\images\\populations\\nfif1qv2.fu0.jpg",
+      "PackagePath": "staticwebassets\\images\\populations\\nfif1qv2.fu0.jpg"
+    },
+    {
+      "Id": "D:\\Project\\ASP\\Demographic_Website\\Demographic_Website\\wwwroot\\images\\populations\\od1kwyvi.1ye.png",
+      "PackagePath": "staticwebassets\\images\\populations\\od1kwyvi.1ye.png"
+    },
+    {
+      "Id": "D:\\Project\\ASP\\Demographic_Website\\Demographic_Website\\wwwroot\\images\\populations\\qhvu2asr.ibu.jpg",
+      "PackagePath": "staticwebassets\\images\\populations\\qhvu2asr.ibu.jpg"
+    },
+    {
+      "Id": "D:\\Project\\ASP\\Demographic_Website\\Demographic_Website\\wwwroot\\images\\populations\\sfmwka2e.14w.jpg",
+      "PackagePath": "staticwebassets\\images\\populations\\sfmwka2e.14w.jpg"
+    },
+    {
+      "Id": "D:\\Project\\ASP\\Demographic_Website\\Demographic_Website\\wwwroot\\images\\populations\\wabxcvd2.nhg.png",
+      "PackagePath": "staticwebassets\\images\\populations\\wabxcvd2.nhg.png"
+    },
+    {
+      "Id": "D:\\Project\\ASP\\Demographic_Website\\Demographic_Website\\wwwroot\\images\\populations\\xad3twod.fvy.jpg",
+      "PackagePath": "staticwebassets\\images\\populations\\xad3twod.fvy.jpg"
+    },
+    {
+      "Id": "D:\\Project\\ASP\\Demographic_Website\\Demographic_Website\\wwwroot\\images\\populations\\yfi0wmse.zx0.png",
+      "PackagePath": "staticwebassets\\images\\populations\\yfi0wmse.zx0.png"
+    },
+    {
+      "Id": "D:\\Project\\ASP\\Demographic_Website\\Demographic_Website\\wwwroot\\images\\populations\\ygfjz5uy.uk0.jpg",
+      "PackagePath": "staticwebassets\\images\\populations\\ygfjz5uy.uk0.jpg"
+    },
+    {
+      "Id": "D:\\Project\\ASP\\Demographic_Website\\Demographic_Website\\wwwroot\\images\\populations\\yuobutw2.lyg.png",
+      "PackagePath": "staticwebassets\\images\\populations\\yuobutw2.lyg.png"
+    },
+    {
+      "Id": "D:\\Project\\ASP\\Demographic_Website\\Demographic_Website\\wwwroot\\images\\populations\\yy3nmdvv.jw3.png",
+      "PackagePath": "staticwebassets\\images\\populations\\yy3nmdvv.jw3.png"
+    },
+    {
+      "Id": "D:\\Project\\ASP\\Demographic_Website\\Demographic_Website\\wwwroot\\js\\addPopulation.js",
+      "PackagePath": "staticwebassets\\js\\addPopulation.js"
+    },
+    {
+      "Id": "D:\\Project\\ASP\\Demographic_Website\\Demographic_Website\\wwwroot\\js\\site.js",
+      "PackagePath": "staticwebassets\\js\\site.js"
+    },
+    {
+      "Id": "D:\\Project\\ASP\\Demographic_Website\\Demographic_Website\\wwwroot\\js\\tempStay.js",
+      "PackagePath": "staticwebassets\\js\\tempStay.js"
+    },
+    {
+      "Id": "D:\\Project\\ASP\\Demographic_Website\\Demographic_Website\\wwwroot\\lib\\bootstrap\\LICENSE",
+      "PackagePath": "staticwebassets\\lib\\bootstrap"
+    },
+    {
+      "Id": "D:\\Project\\ASP\\Demographic_Website\\Demographic_Website\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css"
+    },
+    {
+      "Id": "D:\\Project\\ASP\\Demographic_Website\\Demographic_Website\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map"
+    },
+    {
+      "Id": "D:\\Project\\ASP\\Demographic_Website\\Demographic_Website\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css"
+    },
+    {
+      "Id": "D:\\Project\\ASP\\Demographic_Website\\Demographic_Website\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map"
+    },
+    {
+      "Id": "D:\\Project\\ASP\\Demographic_Website\\Demographic_Website\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css"
+    },
+    {
+      "Id": "D:\\Project\\ASP\\Demographic_Website\\Demographic_Website\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map"
+    },
+    {
+      "Id": "D:\\Project\\ASP\\Demographic_Website\\Demographic_Website\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css"
+    },
+    {
+      "Id": "D:\\Project\\ASP\\Demographic_Website\\Demographic_Website\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map"
+    },
+    {
+      "Id": "D:\\Project\\ASP\\Demographic_Website\\Demographic_Website\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css"
+    },
+    {
+      "Id": "D:\\Project\\ASP\\Demographic_Website\\Demographic_Website\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map"
+    },
+    {
+      "Id": "D:\\Project\\ASP\\Demographic_Website\\Demographic_Website\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css"
+    },
+    {
+      "Id": "D:\\Project\\ASP\\Demographic_Website\\Demographic_Website\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map"
+    },
+    {
+      "Id": "D:\\Project\\ASP\\Demographic_Website\\Demographic_Website\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css"
+    },
+    {
+      "Id": "D:\\Project\\ASP\\Demographic_Website\\Demographic_Website\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map"
+    },
+    {
+      "Id": "D:\\Project\\ASP\\Demographic_Website\\Demographic_Website\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css"
+    },
+    {
+      "Id": "D:\\Project\\ASP\\Demographic_Website\\Demographic_Website\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map"
+    },
+    {
+      "Id": "D:\\Project\\ASP\\Demographic_Website\\Demographic_Website\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css"
+    },
+    {
+      "Id": "D:\\Project\\ASP\\Demographic_Website\\Demographic_Website\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map"
+    },
+    {
+      "Id": "D:\\Project\\ASP\\Demographic_Website\\Demographic_Website\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css"
+    },
+    {
+      "Id": "D:\\Project\\ASP\\Demographic_Website\\Demographic_Website\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map"
+    },
+    {
+      "Id": "D:\\Project\\ASP\\Demographic_Website\\Demographic_Website\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css"
+    },
+    {
+      "Id": "D:\\Project\\ASP\\Demographic_Website\\Demographic_Website\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map"
+    },
+    {
+      "Id": "D:\\Project\\ASP\\Demographic_Website\\Demographic_Website\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css"
+    },
+    {
+      "Id": "D:\\Project\\ASP\\Demographic_Website\\Demographic_Website\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map"
+    },
+    {
+      "Id": "D:\\Project\\ASP\\Demographic_Website\\Demographic_Website\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.css"
+    },
+    {
+      "Id": "D:\\Project\\ASP\\Demographic_Website\\Demographic_Website\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.css.map"
+    },
+    {
+      "Id": "D:\\Project\\ASP\\Demographic_Website\\Demographic_Website\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.min.css"
+    },
+    {
+      "Id": "D:\\Project\\ASP\\Demographic_Website\\Demographic_Website\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map"
+    },
+    {
+      "Id": "D:\\Project\\ASP\\Demographic_Website\\Demographic_Website\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css"
+    },
+    {
+      "Id": "D:\\Project\\ASP\\Demographic_Website\\Demographic_Website\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map"
+    },
+    {
+      "Id": "D:\\Project\\ASP\\Demographic_Website\\Demographic_Website\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css"
+    },
+    {
+      "Id": "D:\\Project\\ASP\\Demographic_Website\\Demographic_Website\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map"
+    },
+    {
+      "Id": "D:\\Project\\ASP\\Demographic_Website\\Demographic_Website\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js"
+    },
+    {
+      "Id": "D:\\Project\\ASP\\Demographic_Website\\Demographic_Website\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map"
+    },
+    {
+      "Id": "D:\\Project\\ASP\\Demographic_Website\\Demographic_Website\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js"
+    },
+    {
+      "Id": "D:\\Project\\ASP\\Demographic_Website\\Demographic_Website\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map"
+    },
+    {
+      "Id": "D:\\Project\\ASP\\Demographic_Website\\Demographic_Website\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js"
+    },
+    {
+      "Id": "D:\\Project\\ASP\\Demographic_Website\\Demographic_Website\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map"
+    },
+    {
+      "Id": "D:\\Project\\ASP\\Demographic_Website\\Demographic_Website\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js"
+    },
+    {
+      "Id": "D:\\Project\\ASP\\Demographic_Website\\Demographic_Website\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map"
+    },
+    {
+      "Id": "D:\\Project\\ASP\\Demographic_Website\\Demographic_Website\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.js"
+    },
+    {
+      "Id": "D:\\Project\\ASP\\Demographic_Website\\Demographic_Website\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.js.map"
+    },
+    {
+      "Id": "D:\\Project\\ASP\\Demographic_Website\\Demographic_Website\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.min.js"
+    },
+    {
+      "Id": "D:\\Project\\ASP\\Demographic_Website\\Demographic_Website\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map"
+    },
+    {
+      "Id": "D:\\Project\\ASP\\Demographic_Website\\Demographic_Website\\wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\LICENSE.txt"
+    },
+    {
+      "Id": "D:\\Project\\ASP\\Demographic_Website\\Demographic_Website\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js"
+    },
+    {
+      "Id": "D:\\Project\\ASP\\Demographic_Website\\Demographic_Website\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js"
+    },
+    {
+      "Id": "D:\\Project\\ASP\\Demographic_Website\\Demographic_Website\\wwwroot\\lib\\jquery-validation\\LICENSE.md",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\LICENSE.md"
+    },
+    {
+      "Id": "D:\\Project\\ASP\\Demographic_Website\\Demographic_Website\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\additional-methods.js"
+    },
+    {
+      "Id": "D:\\Project\\ASP\\Demographic_Website\\Demographic_Website\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\additional-methods.min.js"
+    },
+    {
+      "Id": "D:\\Project\\ASP\\Demographic_Website\\Demographic_Website\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\jquery.validate.js"
+    },
+    {
+      "Id": "D:\\Project\\ASP\\Demographic_Website\\Demographic_Website\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\jquery.validate.min.js"
+    },
+    {
+      "Id": "D:\\Project\\ASP\\Demographic_Website\\Demographic_Website\\wwwroot\\lib\\jquery\\LICENSE.txt",
+      "PackagePath": "staticwebassets\\lib\\jquery\\LICENSE.txt"
+    },
+    {
+      "Id": "D:\\Project\\ASP\\Demographic_Website\\Demographic_Website\\wwwroot\\lib\\jquery\\dist\\jquery.js",
+      "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.js"
+    },
+    {
+      "Id": "D:\\Project\\ASP\\Demographic_Website\\Demographic_Website\\wwwroot\\lib\\jquery\\dist\\jquery.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.js"
+    },
+    {
+      "Id": "D:\\Project\\ASP\\Demographic_Website\\Demographic_Website\\wwwroot\\lib\\jquery\\dist\\jquery.min.map",
+      "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.map"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.Demographic_Website.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.build.Demographic_Website.props",
+      "PackagePath": "build\\Demographic_Website.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildMultiTargeting.Demographic_Website.props",
+      "PackagePath": "buildMultiTargeting\\Demographic_Website.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildTransitive.Demographic_Website.props",
+      "PackagePath": "buildTransitive\\Demographic_Website.props"
+    }
+  ],
+  "ElementsToRemove": []
+}

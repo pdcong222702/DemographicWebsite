@@ -1,0 +1,775 @@
+﻿@using Demographic_Website.ModelViews
+@model IEnumerable<Demographic_Website.Models.Population>
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+    List<Population> populations = ViewData["Population"] as List<Population>;
+    BookLet population = ViewData["ResidenceBookletID"] as BookLet;
+    //var ResidenceBookletID = (int)ViewData["ResidenceBookletID"];
+}
+<style>
+    * {
+        font-size: 14px;
+        margin: 0;
+        padding: 0;
+    }
+
+    .container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    form {
+        margin: auto;
+        border: 1px solid #000;
+    }
+
+    .card {
+        width: 850px;
+        border: 1px solid #cdcdcd;
+        box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    }
+
+    .card-body {
+        margin-bottom: 0;
+    }
+
+    .type-input-form-add-booklet {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 15px;
+        width: 228px;
+    }
+
+        .type-input-form-add-booklet label {
+            margin-bottom: 5px;
+        }
+
+    .custom-file-input {
+        display: inline-block;
+        position: relative;
+        overflow: hidden;
+        border: 2px dashed rgb(54, 135, 186);
+        background-color: #fff;
+        color: #000;
+        padding: 70px 50px;
+        cursor: pointer;
+        background-image: url('arrow.png');
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: 12px;
+    }
+
+        .custom-file-input input {
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            opacity: 0;
+            cursor: pointer;
+        }
+
+    .bx-upload {
+        font-size: 26px;
+        color: rgb(54, 135, 186);
+    }
+
+    .form-add-booklet {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 30%;
+        height: 400px;
+        margin-top: 15px;
+    }
+
+    .line-form-add-booklet {
+        width: 1px;
+        height: 200px;
+        background-color: aqua;
+    }
+
+    .add-population {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .container-population {
+        display: flex;
+        width: 100%;
+    }
+
+    .info-population {
+        margin-left: 20px;
+    }
+
+    .info {
+        height: 30px;
+        display: flex;
+        width: 100%;
+        margin-bottom: 15px;
+    }
+
+        .info label {
+            width: fit-content;
+            padding-right: 0;
+            padding-top: 4px;
+            padding-right: 5px;
+        }
+
+        .info input {
+            width: fit-content;
+            padding-left: 5px;
+        }
+
+    .info-identify {
+        width: fit-content;
+    }
+
+    .custom-input {
+        border: none;
+        border-bottom: 1px solid black;
+        outline: none;
+        flex-grow: 1;
+    }
+
+    .custom-select {
+        flex-grow: 1;
+    }
+
+    .btn-form {
+        display: flex;
+        justify-content: flex-end;
+        padding-right: 15px;
+        padding-bottom: 15px;
+    }
+
+        .btn-form button {
+            margin-right: 15px;
+        }
+
+    .container-booklet {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        flex-wrap: wrap;
+    }
+</style>
+
+@* <button type="button" class="btn btn-primary form-add" data-bs-toggle="modal" data-bs-target="#addPopulation">
+    <i class='bx bx-plus'></i>Thêm mới nhân khẩu
+</button> *@
+@* <form asp-area="Admin" asp-controller="Populations"
+      asp-action="Details" method="post" enctype="multipart/form-data">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <div class="modal" id="addPopulation">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content">
+                <!-- Modal Header -->
+                <div class="modal-header">
+                    <h4 class="modal-title">Thêm nhân khẩu</h4>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <!-- Modal body -->
+                <div class="modal-body" style="display: flex; justify-content: space-between">
+                    <div style="display: block; margin-left: 100px">
+                        <div class="form-group row">
+                            <label class="col-sm-6 col-form-label fw-bold">Họ tên</label>
+                            <div class="modal-body-add">
+                                <input type="text"
+                                       class="form-control"
+                                       id="populationName"
+                                       required
+                                       asp-for="PopulationName"
+                                       placeholder="Nhập họ tên" />
+                                <span asp-validation-for="PopulationName" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-sm-6 col-form-label fw-bold">CCCD/CMND</label>
+                            <div class="modal-body-add">
+                                <input type="text"
+                                       class="form-control"
+                                       placeholder="CCCD/CMND"
+                                       asp-for="CitizenIdentificationCard"
+                                       pattern="\d{12}"
+                                       title="Yêu cầu nhập đủ 12 ký tự từ 0-9"
+                                       required />
+                                <span asp-validation-for="CitizenIdentificationCard" class="text-danger">@Html.Raw(ViewBag.Error)</span>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-sm-6 col-form-label fw-bold">Ngày cấp</label>
+                            <div class="modal-body-add">
+                                <input type="date"
+                                       class="form-control"
+                                       asp-for="DateOfIssue"
+                                       required
+                                       placeholder="Ngày cấp" />
+                                <span asp-validation-for="DateOfIssue" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-sm-6 col-form-label fw-bold">Nơi cấp</label>
+                            <div class="modal-body-add">
+                                <input type="text"
+                                       class="form-control"
+                                       required
+                                       asp-for="PlaceOfIssue"
+                                       placeholder="Nơi cấp" />
+                                <span asp-validation-for="PlaceOfIssue" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-sm-6 col-form-label fw-bold">Tên gọi khác</label>
+                            <div class="modal-body-add">
+                                <input type="text"
+                                       class="form-control"
+                                       asp-for="PopulationNickName"
+                                       placeholder="Tên gọi khác" />
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-sm-6 col-form-label fw-bold">Ngày sinh</label>
+                            <div class="modal-body-add">
+                                <input type="date"
+                                       class="form-control"
+                                       required
+                                       asp-for="DateOfBirth"
+                                       placeholder="Ngày sinh" />
+                                <span asp-validation-for="DateOfBirth" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-sm-6 col-form-label fw-bold">Ảnh</label>
+                            <div class="modal-body-add">
+                                <div style="display: block">
+                                    <input type="file"
+                                           class="form-control"
+                                           id="fileInput"
+                                           name="files"
+                                           asp-for="Image"
+                                           required
+                                           onchange="updateImageName()" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div style="margin-right: 100px">
+                        <div class="form-group row">
+                            <label class="col-sm-6 col-form-label fw-bold">Giới tính</label>
+                            <div class="modal-body-add">
+                                <select class="form-select" asp-for="Gender">
+                                    <option value="True">Nam</option>
+                                    <option value="False">Nữ</option>
+                                    <option value="Khác">Khác</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-sm-6 col-form-label fw-bold">Nơi sinh</label>
+                            <div class="modal-body-add">
+                                <input type="text"
+                                       class="form-control"
+                                       required
+                                       asp-for="BirthPlace"
+                                       id="birthPlace"
+                                       placeholder="Nơi sinh" />
+                                <span asp-validation-for="BirthPlace" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-sm-6 col-form-label fw-bold">Dân tộc</label>
+                            <div class="modal-body-add">
+                                <input type="text"
+                                       class="form-control"
+                                       id="ethnicity"
+                                       asp-for="Ethnicity"
+                                       placeholder="Dân tộc" />
+                                <span asp-validation-for="Ethnicity" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-sm-6 col-form-label fw-bold">Tôn giáo</label>
+                            <div>
+                                <input type="text"
+                                       class="form-control"
+                                       id="religion"
+                                       asp-for="Religion"
+                                       placeholder="Tôn giáo" />
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-sm-6 col-form-label fw-bold">Nghề nghiệp</label>
+                            <div>
+                                <input type="text"
+                                       class="form-control"
+                                       id="job"
+                                       asp-for="Occupation"
+                                       placeholder="Nghề nghiệp" />
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-sm-10 col-form-label fw-bold">Quan hệ với chủ hộ</label>
+                            <div class="modal-body-add">
+                                <select class="form-select" asp-for="Relationship">
+                                    <option value="Ông">Ông</option>
+                                    <option value="Bà">Bà</option>
+                                    <option value="Cha">Cha</option>
+                                    <option value="Mẹ">Mẹ</option>
+                                    <option value="Chồng">Chồng</option>
+                                    <option value="Vợ">Vợ</option>
+                                    <option value="Anh">Anh</option>
+                                    <option value="Chị">Chị</option>
+                                    <option value="Em">Em</option>
+                                    <option value="Con">Con</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-sm-6 col-form-label fw-bold">Nơi làm việc</label>
+                            <div>
+                                <input type="text" asp-for="WorkPlace"
+                                       class="form-control"
+                                       placeholder="Nơi làm vệc" />
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-sm-6 col-form-label fw-bold">Trình độ học vấn</label>
+                            <div class="modal-body-add">
+                                <select class="form-select" asp-for="EducationalLevels">
+                                    <option value="Tiến sĩ,Thạc sĩ">Tiến sĩ,Thạc sĩ</option>
+                                    <option value="Đại học">Đại học</option>
+                                    <option value="Cao đẳng">Cao đẳng</option>
+                                    <option value="Trung cấp">Trung cấp</option>
+                                    <option value="Trung học phổ thông" selected>Trung học phổ thông</option>
+                                    <option value="Trung học cở sở">Trung học cơ sở</option>
+                                    <option value="Lao động phổ thông">Lao động phổ thông</option>
+                                    <option value="Không xác định">Không xác định</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Modal footer -->
+                <div class="modal-footer">
+                    <button type="button"
+                            class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#myModal">
+                        Tạo nhân khẩu
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- The Modal -->
+    <div class="modal" id="myModal">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+
+                <!-- Modal Header -->
+                <div class="modal-header btn btn-warning">
+                    <h4 class="modal-title" style="color:aliceblue"><i class='bx bx-error'></i> Bạn có chắc chắn về những thông tin đã nhập</h4>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <!-- Modal footer -->
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-primary">Xác nhận</button>
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Hủy bỏ</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+</form> *@
+
+<div class="container mt-3">
+    <div>
+        <p style="font-size: x-large;color:#01579b;">Đăng ký nhân khẩu</p>
+    </div>
+    <form asp-area="Admin" asp-controller="Populations" asp-action="Details" method="post" enctype="multipart/form-data" class="card">
+        <div class="card-body d-flex row">
+            <div class="col-4 add-population">
+                <div style="display: flex;justify-content: center;align-items: center;flex-direction: column;">
+                    <h5 style="color:#01579b">Thông tin nhân khẩu</h5>
+                    <div class="container-population">
+                        <div class="container-img" style="width: 23%;display:flex;justify-content:center;align-items:center;">
+                            @* <input id="file-upload" class="custom-file-input" style="width:100%;align-content:center;" name="Image" type="file" /> *@
+                            <label class="custom-file-input">
+                                <i class='bx bx-upload' style="font-size: 26px;"></i>
+                                <input id="file-upload" required name="Image" type="file">
+                            </label>
+                        </div>
+                        <div class="info-population" style="width: 77%;">
+                            <div class="row info">
+                                <label class="col-5" style="padding-top: 4px;">
+                                    <span class="text-danger">*</span>Họ Tên Khai Sinh:
+                                </label>
+                                <input type="text" name="PopulationName" class="custom-input" />
+                                <span class="text-danger">@ViewBag.ErrorPopulationName</span>
+                            </div>
+                            <div class="row info d-flex">
+                                <label class="col-5">
+                                    Tên Gọi Khác:
+                                </label>
+                                <input type="text" name="PopulationNickName" class="custom-input" />
+                            </div>
+                            <div class="row info">
+                                <label class="col-5">
+                                    Giới Tính:
+                                </label>
+                                <select class="form-select" style="width:200px" name="Gender">
+                                    <option value="True">Nam</option>
+                                    <option value="False">Nữ</option>
+                                </select>
+                            </div>
+                            <div class="row info">
+                                <label class="col-5">
+                                    <span class="text-danger">*</span>Sinh Ngày:
+                                </label>
+                                <input type="date" name="DateOfBirth" class="custom-input" />
+                                <span class="text-danger">@ViewBag.ErrorDateOfBirth</span>
+                            </div>
+                            <div class="row info">
+                                <label class="col-5">
+                                    <span class="text-danger">*</span>Nơi Sinh:
+                                </label>
+                                <input type="text" name="BirthPlace" class="custom-input" />
+                                <span class="text-danger">@ViewBag.ErrorBirthPlace</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="info-population" style="margin-left: 0;">
+                    <div class="row info" style="width: 100%; ">
+                        <label class="col-5">
+                            <span class="text-danger">*</span>Nguyên Quán:
+                        </label>
+                        <input type="text" name="BirthPlace" class="custom-input" />
+                    </div>
+                    <div class="row info">
+                        <label class="col-5">
+                            <span class="text-danger">*</span>CMND/CCCD:
+                        </label>
+                        <input type="text" name="CitizenIdentificationCard" class="custom-input" />
+                        <span class="text-danger">@ViewBag.Error</span>
+                    </div>
+                    <div class="row info">
+                        <label class="col-5">
+                            <span class="text-danger">*</span>Ngày cấp:
+                        </label>
+                        <input type="date" name="DateOfIssue" class="custom-input" />
+                        <span class="text-danger">@ViewBag.ErrorDateOfIssue</span>
+                    </div>
+                    <div class="row info">
+                        <label class="col-5">
+                            <span class="text-danger">*</span>Nơi cấp:
+                        </label>
+                        <input type="text" name="PlaceOfIssue" class="custom-input" />
+                        <span class="text-danger">@ViewBag.ErrorPlaceOfIssue</span>
+                    </div>
+                    <div class="row info">
+                        <label class="col-5">Quan hệ với chủ hộ</label>
+                        <select class="form-select" style="width:300px;" name="Relationship">
+                            <option value="Ông">Ông</option>
+                            <option value="Bà">Bà</option>
+                            <option value="Cha">Cha</option>
+                            <option value="Mẹ">Mẹ</option>
+                            <option value="Chồng">Chồng</option>
+                            <option value="Vợ">Vợ</option>
+                            <option value="Anh">Anh</option>
+                            <option value="Chị">Chị</option>
+                            <option value="Em">Em</option>
+                            <option value="Con">Con</option>
+                        </select>
+                    </div>
+                    <div class="row info ">
+                        <label class="col-5">
+                            <span class="text-danger">*</span>Dân tộc:
+                        </label>
+                        <input type="text" name="Ethnicity" class="custom-input" />
+                        <span class="text-danger">@ViewBag.ErrorEthnicity</span>
+                    </div>
+                    <div class="row info">
+                        <label class="col-5">
+                            Tôn giáo:
+                        </label>
+                        <input type="text" name="Religion" class="custom-input" />
+                    </div>
+                    <div class="row info">
+                        <label class="col-5">
+                            Trình Độ Văn Hóa:
+                        </label>
+                        <input type="text" name="EducationalLevels" class="custom-input" />
+                    </div>
+                    <div class="row info">
+                        <label class="col-5">
+                            Nghề Nghiệp:
+                        </label>
+                        <input type="text" name="Occupation" class="custom-input" />
+                    </div>
+                    <div class="row info">
+                        <label class="col-5">
+                            Nơi Làm Việc:
+                        </label>
+                        <input type="text" name="WorkPlace" class="custom-input" />
+                    </div>
+                </div>
+            </div>
+        </div>
+        <span class="text-danger" style="margin-left:20px;">(*) Không được để trống</span>
+        <hr>
+        <div class="btn-form">
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#myModal">Thêm mới nhân khẩu</button>
+        </div>
+        <div class="modal" id="myModal">
+            <div class="modal-dialog">
+                <div class="modal-content">
+
+                    <!-- Modal Header -->
+                    <div class="modal-header btn btn-warning">
+                        <h4 class="modal-title text-light"><i class='bx bx-error' style="font-size:1.5rem"></i>Bạn có chắc về thông tin đã chọn!</h4>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                    </div>
+                    <!-- Modal footer -->
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-primary">Xác nhận</button>
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Hủy bỏ</button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+
+<div class="mt-3" style="display:flex;justify-content:space-around;flex-wrap:wrap;" id="container-population">
+    @foreach (var item in Model)
+    {
+        <div class="profile-card">
+            <div class="image">
+                <img src="~/images/populations/@item.Image" alt="" class="profile-img">
+            </div>
+            <div class="text-data">
+                <span class="name">
+                    @item.PopulationName
+                </span>
+                <span class="job">
+                    @item.Relationship
+                </span>
+                <span class="job">
+                    @if (item.Alive == false)
+                    {
+                        <p data-dead="@item.PopulationId" class="btn btn-danger dead">Đã chết</p>
+                    }else{
+                        <p data-alive="@item.PopulationId" class="btn btn-success alive">Còn sống</p>
+                    }
+                </span>
+            </div>
+            <div class="media-button">
+                <div class="wrap-info">
+                    <p>Họ tên: <strong>@item.PopulationName</strong></p>
+                    <p>Tên gọi khác: <strong>@item.PopulationNickName</strong></p>
+                </div>
+                <div class="wrap-info">
+                    <p>Ngày sinh: <strong>@item.DateOfBirth.Value.ToShortDateString()</strong></p>
+                    @if (item.Gender == true)
+                    {
+                        <p>Giới tính: <strong>Nam</strong></p>
+                    }
+                    else
+                    {
+                        <p>Giới tính: <strong>Nữ</strong></p>
+                    }
+                </div>
+
+                <p>Nơi sinh: <strong>@item.BirthPlace</strong></p>
+                <div class="wrap-info">
+                    <p>Dân tộc: <strong>@item.Ethnicity</strong></p>
+                    <p>Tôn giáo: <strong>@item.Religion</strong></p>
+                </div>
+                <div class="wrap-info">
+                    <p>CMND/CCCD: <strong>@item.CitizenIdentificationCard</strong></p>
+                    <p>Ngày cấp: <strong>@item.DateOfIssue.Value.ToShortDateString()</strong></p>
+                </div>
+                <div class="wrap-info">
+                    <p>Nơi cấp: <strong>@item.PlaceOfIssue</strong></p>
+                    <p>Trình độ văn hóa: <strong>@item.EducationalLevels</strong></p>
+                </div>
+                <div class="wrap-info">
+                    <p>Nghề nghiệp: <strong>@item.Occupation</strong></p>
+                    <p>Ngày tạo: <strong>@item.CreatedDate.Value.ToShortDateString()</strong></p>
+                </div>
+            </div>
+            <div style="height: 1px;width: 100%;background-color: black;"></div>
+            <div class="buttons">
+                @if (item.Alive == true)
+                {
+                    <button class="button"><a asp-controller="Populations" asp-action="Edit" asp-route-id="@item.PopulationId" style="color:#fff;text-decoration:none;">Thay đổi thông tin</a></button>
+                    <button class="button"><a href="/dang-ky-tam-tru/@item.PopulationId" style="color:#fff;text-decoration:none;">Đăng ký tạm trú</a></button>
+                    <button class="button"><a href="/dang-ky-tam-vang/@item.PopulationId" style="color:#fff;text-decoration:none;">Đăng ký tạm vắng</a></button>
+                    <button class="button" type="button" data-bs-toggle="modal" data-bs-target="#DeadModal"><p  data-alive="@item.PopulationId" style="color:#fff;text-decoration:none;">Khai tử nhân khẩu</p></button>
+                    <div class="modal" id="DeadModal">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+
+                                <!-- Modal Header -->
+                                <div class="modal-header btn btn-danger">
+                                    <h4 class="modal-title text-light"><i class='bx bx-error' style="font-size:1.5rem"></i>Bạn có chắc muốn khai tử nhân khẩu!</h4>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                                </div>
+                                <!-- Modal footer -->
+                                <div class="modal-footer">
+                                    <button type="button" data-alive="@item.PopulationId" class="alive btn btn-danger">Xác nhận</button>
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Hủy bỏ</button>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                }
+                else
+                {
+                    <p class="btn btn-danger">Người này hiện không còn sống</p>
+                }
+            </div>
+        </div>
+    }
+</div>
+
+
+
+@section Style {
+    <link href="~/css/population.css" rel="stylesheet" asp-append-version="true" />
+    <link href="~/css/stylepopulation.css" rel="stylesheet" asp-append-version="true" />
+    <script>
+        function loadData() {
+            var container = $("#container-population");
+            var id = container.data("id");
+            // container.empty();
+            // console.log(id);
+            var urlPopulation = "/chi-tiet-so-ho-khau/" + id;
+            $.ajax({
+                cache: false,
+                url: urlPopulation,
+                type: "GET",
+                contentType: false,
+                processData: false,
+                success: function (data) {
+                    location.href = data.redirectUrl;
+                }
+            });
+        }
+
+        $(document).ready(function () {
+
+            $('.edit_population').click(function () {
+                var id = $(this).attr("data-idEdit");
+                var dataPP = new FormData();
+                //thêm id vào form data
+                dataPP.append("id", id);
+                //gán dữ liệu vào population
+
+                var PopulationName = document.getElementById("PopulationName");
+                dataPP.append("PopulationName", PopulationName);
+                var PopulationNickName = document.getElementById("PopulationNickName");
+                dataPP.append("PopulationNickName", PopulationNickName);
+                var Gender = document.getElementById("Gender");
+                dataPP.append("Gender", Gender);
+                var DateOfBirth = document.getElementById("DateOfBirth");
+                dataPP.append("DateOfBirth", Gender);
+                var BirthPlace = document.getElementById("BirthPlace");
+                dataPP.append("BirthPlace", BirthPlace);
+                var Ethnicity = document.getElementById("Ethnicity");
+                dataPP.append("Ethnicity", Ethnicity);
+                var Religion = document.getElementById("Religion");
+                dataPP.append("Religion", Religion);
+                var WorkPlace = document.getElementById("WorkPlace");
+                dataPP.append("WorkPlace", WorkPlace);
+                var Occupation = document.getElementById("Occupation");
+                dataPP.append("Occupation", Occupation);
+                var CitizenIdentificationCard = document.getElementById("CitizenIdentificationCard");
+                dataPP.append("CitizenIdentificationCard", CitizenIdentificationCard);
+                var DateOfIssue = document.getElementById("DateOfIssue");
+                dataPP.append("DateOfIssue", DateOfIssue);
+                var PlaceOfIssue = document.getElementById("PlaceOfIssue");
+                dataPP.append("PlaceOfIssue", PlaceOfIssue);
+                var CreatedDate = document.getElementById("CreatedDate");
+                dataPP.append("CreatedDate", CreatedDate);
+                var Relationship = document.getElementById("Relationship");
+                dataPP.append("Relationship", Relationship);
+
+                // var population = {};
+                // population.PopulationName = $("#PopulationName").val();
+                // population.PopulationNickName = $("#PopulationNickName").val();
+                // population.Gender = $("#Gender").val();
+                // population.DateOfBirth = $("#DateOfBirth").val();
+                // population.BirthPlace = $("#BirthPlace").val();
+                // population.Ethnicity = $("#Ethnicity").val();
+                // population.Religion = $("#Religion").val();
+                // population.WorkPlace = $("#WorkPlace").val();
+                // population.Occupation = $("#Occupation").val();
+                // population.CitizenIdentificationCard = $("#CitizenIdentificationCard").val();
+                // population.DateOfIssue = $("#DateOfIssue").val();
+                // population.PlaceOfIssue = $("#PlaceOfIssue").val();
+                // population.CreatedDate = $("#CreatedDate").val();
+                // population.Relationship = $("#Relationship").val();
+
+                // dataPP.append("population", population);
+                console.log(id);
+                $.ajax({
+                    url: '/edit-data-population/' + id,
+                    type: 'POST',
+                    data: dataPP,
+                    dataType: "json",
+                    contentType: "application/json;charset=utf-8",
+                    success: function (result) {
+                        console.log(result);
+                        // if (result.result == true) {
+                        //     location.href = result.redirectUrl;
+                        // }
+                    }
+                });
+            });
+            //loadData();
+
+            $('.dead').click(function () {
+                var id = $(this).attr("data-dead");
+                console.log(id);
+                $.ajax({
+                    url: '/update-condition-alive/' + id,
+                    type: 'POST',
+                    success: function (result) {
+                        console.log(result);
+                        if (result.result == true) {
+                            location.href = result.redirectUrl;
+                        }
+                    }
+                });
+            });
+
+            $('.alive').click(function () {
+                var id = $(this).attr("data-alive");
+                $.ajax({
+                    url: '/update-condition-dead/' + id,
+                    type: 'POST',
+                    success: function (result) {
+                        console.log(result);
+                        if (result.result == true) {
+                            location.href = result.redirectUrl;
+                        }
+                    }
+                });
+            });
+        });
+    </script>
+}
+

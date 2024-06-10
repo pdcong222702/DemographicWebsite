@@ -1,0 +1,786 @@
+﻿@using Demographic_Website.ModelViews;
+@using System.Collections;
+@model X.PagedList.IPagedList<Demographic_Website.ModelViews.BookLet>;
+@using X.PagedList.Mvc.Core;
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+    List<BookLet> bookLet = ViewData["Query"] as List<BookLet>;
+}
+<style>
+    * {
+        font-size: 14px;
+        margin: 0;
+        padding: 0;
+    }
+
+    .container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    form {
+        margin: auto;
+        border: 1px solid #000;
+    }
+
+    .card {
+        width: 850px;
+        border: 1px solid #cdcdcd;
+        box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    }
+
+    .card-body {
+        margin-bottom: 0;
+    }
+
+    .type-input-form-add-booklet {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 15px;
+        width: 228px;
+    }
+
+        .type-input-form-add-booklet label {
+            margin-bottom: 5px;
+        }
+
+    .custom-file-input {
+        display: inline-block;
+        position: relative;
+        overflow: hidden;
+        border: 2px dashed rgb(54, 135, 186);
+        background-color: #fff;
+        color: #000;
+        padding: 70px 50px;
+        cursor: pointer;
+        background-image: url('arrow.png');
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: 12px;
+    }
+
+        .custom-file-input input {
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            opacity: 0;
+            cursor: pointer;
+        }
+
+    .bx-upload {
+        font-size: 26px;
+        color: rgb(54, 135, 186);
+    }
+
+    .form-add-booklet {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 30%;
+        height: 400px;
+        margin-top: 15px;
+    }
+
+    .line-form-add-booklet {
+        width: 1px;
+        height: 200px;
+        background-color: aqua;
+    }
+
+    .add-population {
+        display: flex;
+        flex-direction: column;
+        width: 70%;
+    }
+
+    .container-population {
+        display: flex;
+        width: 100%;
+    }
+
+    .info-population {
+        margin-left: 20px;
+    }
+
+    .info {
+        height: 30px;
+        display: flex;
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+        .info label {
+            width: fit-content;
+            padding-right: 0;
+            padding-top: 4px;
+            padding-right: 5px;
+        }
+
+        .info input {
+            width: fit-content;
+            padding-left: 5px;
+        }
+
+    .info-identify {
+        width: fit-content;
+    }
+
+    .custom-input {
+        border: none;
+        border-bottom: 1px solid black;
+        outline: none;
+        flex-grow: 1;
+    }
+
+    .custom-select {
+        flex-grow: 1;
+    }
+
+    .btn-form {
+        display: flex;
+        justify-content: flex-end;
+        padding-right: 15px;
+        padding-bottom: 15px;
+    }
+
+        .btn-form button {
+            margin-right: 15px;
+        }
+
+    .container-booklet {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        flex-wrap: wrap;
+    }
+</style>
+@* <button type="button" class="btn btn-primary form-add" data-bs-toggle="modal" data-bs-target="#form-add-booklet">
+    <i class='bx bx-plus'></i>Thêm mới sổ hộ khẩu
+</button> *@
+
+<div class="modal" id="form-add-booklet">
+    <div class="modal-dialog modal-xl">
+        <div class="modal-content">
+            @* <form asp-area="Admin" asp-controller="RecedentceBooklet"
+            asp-action="Create" method="post" enctype="multipart/form-data" class="">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <!-- Modal Header -->
+            <div class="modal-header">
+            <h4 class="modal-title">Thêm mới sổ hộ khẩu</h4>
+            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+
+            <!-- Modal body -->
+            <div class="modal-body">
+
+            <div class="row">
+            <div class="col-6">
+            <label asp-for="ResidenceBooklet.ResidenceBookletCode" class="form-label">Mã sổ hộ khẩu</label>
+            <input asp-for="ResidenceBooklet.ResidenceBookletCode" class="form-control" />
+            <span asp-validation-for="ResidenceBooklet.ResidenceBookletCode" class="text-danger">@Html.Raw(ViewBag.Error)</span>
+            </div>
+            <div class="col-6">
+            <label asp-for="Population.DateOfIssue" class="form-label">Ngày cấp</label>
+            <input asp-for="Population.DateOfIssue" type="date" class="form-control" />
+            <span asp-validation-for="Population.DateOfIssue" class="text-danger">@Html.Raw(ViewBag.Error)</span>
+            </div>
+            </div>
+            <div class="row">
+            <div class="col-6">
+            <label asp-for="ResidenceBooklet.BookletArea" class="form-label">Mã khu vực</label>
+            <select class="form-select" asp-for="ResidenceBooklet.BookletArea">
+            <option value="KV1">KV1</option>
+            <option value="KV2">KV2</option>
+            <option value="KV2-NT">KV2-NT</option>
+            <option value="KV3">KV3</option>
+            </select>
+            </div>
+            <div class="col-6">
+            <label asp-for="Population.PlaceOfIssue" class="form-label">Nơi cấp</label>
+            <input asp-for="Population.PlaceOfIssue" class="form-control" />
+            <span asp-validation-for="Population.PlaceOfIssue" class="text-danger">@Html.Raw(ViewBag.Error)</span>
+            </div>
+            </div>
+            <div class="row">
+            <div class="col-6">
+            <label asp-for="Population.PopulationName" class="form-label">Họ tên chủ hộ</label>
+            <input asp-for="Population.PopulationName" class="form-control" />
+            <span asp-validation-for="Population.PopulationName" class="text-danger">@Html.Raw(ViewBag.Error)</span>
+            </div>
+            <div class="col-6">
+            <label asp-for="Population.Ethnicity" class="form-label">Dân tộc</label>
+            <input asp-for="Population.Ethnicity" class="form-control" />
+            <span asp-validation-for="Population.Ethnicity" class="text-danger">@Html.Raw(ViewBag.Error)</span>
+            </div>
+            </div>
+            <div class="row">
+            <div class="col-6">
+            <label asp-for="Population.Gender" class="form-label">Giới tính</label>
+            <select class="form-select" required asp-for="Population.Gender">
+            <option value="1">Nam</option>
+            <option value="0">Nữ</option>
+            <option value="Khác">Khác</option>
+            </select>
+            </div>
+            <div class="col-6">
+            <label asp-for="Population.Occupation" class="form-label">Nghề nghiệp</label>
+            <input asp-for="Population.Occupation" class="form-control" />
+            </div>
+            </div>
+            <div class="row">
+            <div class="col-6">
+            <label asp-for="Population.DateOfBirth" class="form-label">Ngày sinh</label>
+            <input asp-for="Population.DateOfBirth" type="date" class="form-control" />
+            <span asp-validation-for="Population.DateOfBirth" class="text-danger">@Html.Raw(ViewBag.Error)</span>
+            </div>
+            <div class="col-6">
+            <label asp-for="Population.WorkPlace" class="form-label">Nơi làm việc</label>
+            <input asp-for="Population.WorkPlace" class="form-control" />
+            </div>
+            </div>
+            <div class="row">
+            <div class="col-6">
+            <label asp-for="Population.CitizenIdentificationCard" class="form-label">CMND/CCCD</label>
+            <input asp-for="Population.CitizenIdentificationCard" class="form-control" />
+            <span asp-validation-for="Population.CitizenIdentificationCard" class="text-danger">@Html.Raw(ViewBag.Error)</span>
+            </div>
+            <div class="col-6">
+            <label asp-for="ResidenceBooklet.Address" class="form-label">Địa chỉ</label>
+            <input asp-for="ResidenceBooklet.Address" class="form-control" />
+            <span asp-validation-for="ResidenceBooklet.Address" class="text-danger">@Html.Raw(ViewBag.Error)</span>
+            </div>
+            </div>
+            <div class="row">
+            <div class="col-6">
+            <label asp-for="Population.Image" class="form-label">Ảnh chủ hộ</label>
+            <input asp-for="Population.Image" name="image" type="file" class="form-control" />
+            </div>
+            <div class="col-6">
+            <label asp-for="Population.Religion" class="form-label">Tôn giáo</label>
+            <input asp-for="Population.Religion" class="form-control" />
+            </div>
+            </div>
+            </div>
+            <input type="hidden" asp-for="Population.Relationship" value="Chủ hộ" />
+            <!-- Modal footer -->
+            <div class="modal-footer">
+            <button type="submit" class="btn btn-primary">Tạo sổ hộ khẩu</button>
+            </div>
+
+            <!-- The Modal -->
+            <div class="modal" id="myModal">
+            <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+
+            <!-- Modal Header -->
+            <div class="modal-header btn btn-warning">
+            <h4 class="modal-title" style="color:aliceblue"><i class='bx bx-error'></i> Bạn có chắc chắn về những thông tin đã nhập</h4>
+            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <!-- Modal footer -->
+            <div class="modal-footer">
+            <button type="submit" class="btn btn-primary">Xác nhận</button>
+            <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Hủy bỏ</button>
+            </div>
+
+            </div>
+            </div>
+            </div>
+
+            </form> *@
+        </div>
+    </div>
+</div>
+
+
+<div class="mt-3" style="display:flex;justify-content:space-around;">
+    <div style="background-color: #ffffff;width: 25%;display: flex;justify-content: center;align-items: center;height:500px;margin-top:55px">
+        <div >
+            <div style="padding: 20px 0;">
+                <form style="border:none" asp-area="Admin" asp-controller="RecedentceBooklet" asp-action="Index" method="get">
+                    <div class="mb-3">
+                        <label class="form-label">Tìm kiếm hộ khẩu</label>
+                        <input type="text" class="form-control" name="MaHK" placeholder="Mã hộ khẩu hoặc CCCD chủ hộ" style="width: 275px;">
+                    </div>
+                    <div style="width: 100%;display: flex;justify-content: flex-end;">
+                        <button type="submit" class="btn btn-primary">Tìm kiếm</button>
+                    </div>
+                </form>
+                <hr>
+                <form style="border:none" asp-area="Admin" asp-controller="RecedentceBooklet" asp-action="Index" method="get">
+                    <div class="mb-3">
+                        <label for="exampleInputEmail1" class="form-label">Tỉnh/Thành phố</label>
+                        <select class="form-select province" name="province" id="province">
+                            <option value="0">Chọn Tỉnh/Thành phố</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleInputEmail1" class="form-label">Quận/Huyện</label>
+                        <select class="form-select district" name="district" id="district">
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleInputEmail1" class="form-label">Phường/Xã</label>
+                        <select class="form-select ward" name="ward" id="ward">
+                        </select>
+                    </div>
+                    <div style="width: 100%;display: flex;justify-content: flex-end;">
+                        <button type="submit" class="btn btn-primary">Lọc</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div>
+        <div>
+            <p style="font-size: x-large;color:#01579b;">Đăng ký hộ khẩu</p>
+        </div>
+        <form asp-area="Admin" asp-controller="RecedentceBooklet" asp-action="Index" method="post" enctype="multipart/form-data" class="card">
+            <div class="card-body d-flex row">
+                <div class="form-add-booklet col-4">
+                    <h5 style="color:#01579b">Thông Tin Sổ</h5>
+                    <div class="type-input-form-add-booklet">
+                        <label class="label">Mã hộ khẩu<span class="text-danger">*</span></label>
+                        <input type="text" name="ResidenceBookletCode" class="custom-input">
+                        <span class="text-danger">@ViewBag.ErrorResidenceBookletCode</span>
+                    </div>
+                    <div class="type-input-form-add-booklet">
+                        <label>Tỉnh/Thành Phố</label>
+                        <input type="text" class="custom-input">
+                    </div>
+                    <div class="type-input-form-add-booklet">
+                        <label>Quận/Huyện</label>
+                        <input type="text" class="custom-input">
+                    </div>
+                    <div class="type-input-form-add-booklet">
+                        <label>Phường/Xã</label>
+                        <input type="text" class="custom-input">
+                    </div>
+                    <div class="type-input-form-add-booklet">
+                        <label>Khu vực</label>
+                        <select class="form-select" name="BookletArea">
+                            <option value="KV1">KV1</option>
+                            <option value="KV2">KV2</option>
+                            <option value="KV2-NT">KV2-NT</option>
+                            <option value="KV3">KV3</option>
+                        </select>
+                    </div>
+                    <div style="width: 228px;display:flex;flex-direction:column">
+                        <label>Địa chỉ<span class="text-danger">*</span></label>
+                        <textarea type="text" class="custom-input" name="Address" style="height: 80%;"></textarea>
+                        <span class="text-danger">@ViewBag.ErrorAddress</span>
+                    </div>
+                </div>
+                <div class="col-4 add-population">
+                    <div style="display: flex;justify-content: center;align-items: center;flex-direction: column;">
+                        <h5 style="color:#01579b">Thông tin chủ hộ</h5>
+                        <div class="container-population">
+                            <div class="container-img" style="width: 23%;">
+                                @* <input id="file-upload" class="custom-file-input" style="width:100%;align-content:center;" name="Image" type="file" /> *@
+                                <label class="custom-file-input">
+                                    <i class='bx bx-upload' style="font-size: 26px;"></i>
+                                    <input id="file-upload" required name="Image" type="file">
+                                </label>
+                            </div>
+                            <div class="info-population" style="width: 77%;">
+                                <div class="row info">
+                                    <label class="col-5" style="padding-top: 4px;">
+                                        <span class="text-danger">*</span>Họ Tên Khai Sinh:
+                                    </label>
+                                    <input type="text" name="PopulationName" class="custom-input" />
+                                    <span class="text-danger">@ViewBag.ErrorPopulationName</span>
+                                </div>
+                                <div class="row info d-flex">
+                                    <label class="col-5">
+                                        Tên Gọi Khác:
+                                    </label>
+                                    <input type="text" name="PopulationNickName" class="custom-input" />
+                                </div>
+                                <div class="row info">
+                                    <label class="col-5">
+                                        Giới Tính:
+                                    </label>
+                                    <select class="form-select" style="width:200px" name="Gender">
+                                        <option value="1">Nam</option>
+                                        <option value="0">Nữ</option>
+                                    </select>
+                                </div>
+                                <div class="row info">
+                                    <label class="col-5">
+                                        <span class="text-danger">*</span>Sinh Ngày:
+                                    </label>
+                                    <input type="date" name="DateOfBirth" class="custom-input" />
+                                    <span class="text-danger">@ViewBag.ErrorDateOfBirth</span>
+                                </div>
+                                <div class="row info">
+                                    <label class="col-5">
+                                        <span class="text-danger">*</span>Nơi Sinh:
+                                    </label>
+                                    <input type="text" name="BirthPlace" class="custom-input" />
+                                    <span class="text-danger">@ViewBag.ErrorBirthPlace</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="info-population" style="margin-left: 0;">
+                        <div class="row info" style="width: 100%; ">
+                            <label class="col-5">
+                                <span class="text-danger">*</span>Nguyên Quán:
+                            </label>
+                            <input type="text" name="BirthPlace" class="custom-input" />
+                        </div>
+                        <div class="row info">
+                            <label class="col-5">
+                                <span class="text-danger">*</span>CMND/CCCD:
+                            </label>
+                            <input type="text" name="CitizenIdentificationCard" class="custom-input" />
+                            <span class="text-danger">@ViewBag.ErrorCitizenIdentificationCard</span>
+                        </div>
+                        <div class="row info">
+                            <label class="col-5">
+                                <span class="text-danger">*</span>Ngày cấp:
+                            </label>
+                            <input type="date" name="DateOfIssue" class="custom-input" />
+                            <span class="text-danger">@ViewBag.ErrorDateOfIssue</span>
+                        </div>
+                        <div class="row info">
+                            <label class="col-5">
+                                <span class="text-danger">*</span>Nơi cấp:
+                            </label>
+                            <input type="text" name="PlaceOfIssue" class="custom-input" />
+                            <span class="text-danger">@ViewBag.ErrorPlaceOfIssue</span>
+                        </div>
+                        <div class="row info ">
+                            <label class="col-5">
+                                <span class="text-danger">*</span>Dân tộc:
+                            </label>
+                            <input type="text" name="Ethnicity" class="custom-input" />
+                            <span class="text-danger">@ViewBag.ErrorEthnicity</span>
+                        </div>
+                        <div class="row info">
+                            <label class="col-5">
+                                Tôn giáo:
+                            </label>
+                            <input type="text" name="Religion" class="custom-input" />
+                        </div>
+                        <div class="row info">
+                            <label class="col-5">
+                                Trình Độ Văn Hóa:
+                            </label>
+                            <input type="text" name="EducationalLevels" class="custom-input" />
+                        </div>
+                        <div class="row info">
+                            <label class="col-5">
+                                Nghề Nghiệp:
+                            </label>
+                            <input type="text" name="Occupation" class="custom-input" />
+                        </div>
+                        <div class="row info">
+                            <label class="col-5">
+                                Nơi Làm Việc:
+                            </label>
+                            <input type="text" name="WorkPlace" class="custom-input" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <span class="text-danger" style="margin-left:20px;">(*) Không được để trống</span>
+            <hr>
+            <div class="btn-form">
+                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#myModal">Thêm mới hộ khẩu</button>
+            </div>
+            <div class="modal" id="myModal">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+
+                        <!-- Modal Header -->
+                        <div class="modal-header btn btn-warning">
+                            <h4 class="modal-title text-light"><i class='bx bx-error' style="font-size:1.5rem"></i>Bạn có chắc về thông tin đã chọn!</h4>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                        </div>
+                        <!-- Modal footer -->
+                        <div class="modal-footer">
+                            <button type="submit" class="btn btn-primary">Xác nhận</button>
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Hủy bỏ</button>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+
+</div>
+
+<div style="margin:30px;display:flex;align-items:center;justify-content:center;width:100%;">
+    <p style="font-size:24px;color:#01579b;">Danh sách hộ khẩu</p>
+</div>
+<div class="container-booklet">
+    <div class="slide-container" style="width:100%">
+        <div class="slide-content">
+            <div class="card-wrapper">
+                @foreach (var item in Model)
+                {
+                    <div class="card-booklet" style="width:420px;">
+                        <div class="image-content">
+                            <span class="overlay"></span>
+                            <div class="card-image">
+                                <img src="~/images/populations/@item.Population.Image" alt="" class="card-img">
+                            </div>
+                        </div>
+
+                        <div class="card-content">
+                            <h2 class="name">Hộ khẩu</h2>
+                            <div class="description" style="height:210px;">
+                                <p>Mã hộ khẩu: <strong>@item.ResidenceBooklet.ResidenceBookletCode</strong></p>
+                                <p>Mã khu vực: <strong>@item.ResidenceBooklet.BookletArea</strong></p>
+                                <p>Địa chỉ hộ khẩu: <strong>@item.ResidenceBooklet.Address</strong></p>
+                                <p>Họ tên chủ hộ: <strong>@item.Population.PopulationName</strong></p>
+                                <p>CMND/CCCD: <strong>@item.Population.CitizenIdentificationCard</strong></p>
+                                <p>Ngày tạo: <strong>@item.ResidenceBooklet.CreateDate.Value.ToShortDateString()</strong></p>
+                            </div>
+                            <div style="width:390px;height:1px;background-color:black;"></div>
+                            <div class="button">
+                                <button class="">
+                                    <a href="/chi-tiet-so-ho-khau/@item.ResidenceBooklet.ResidenceBookletId" style="color:#fff;text-decoration:none;width:fit-content;">Thông tin sổ hộ khẩu</a>
+                                </button>
+                                <button class="">
+                                    <a href="/tach-khau/@item.ResidenceBooklet.ResidenceBookletId" style="color:#fff;text-decoration:none;padding:10px 7px;">Tách khẩu</a>
+                                </button>
+                                <button class="">
+                                    <a href="/di-chuyen-ho-khau/@item.ResidenceBooklet.ResidenceBookletId" style="color:#fff;text-decoration:none;padding:0 6px;">Di chuyển hộ khẩu</a>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+
+        </div>
+    </div>
+
+
+</div>
+<nav aria-label="Page navigation example" style="display:flex;align-items:center;justify-content:center;">
+    <ul class="pagination">
+
+        <li class="page-item">
+            @Html.PagedListPager(Model, page => Url.Action("Index", "RecedentceBooklet", new { page = page }), new PagedListRenderOptions()
+       {
+           LiElementClasses = new string[] { "page-item" },
+           PageClasses = new string[] { "page-link" }
+       })
+        </li>
+    </ul>
+</nav>
+
+
+@section Style {
+    <link href="~/css/stylebooklet.css" rel="stylesheet" asp-append-version="true" />
+    @* <script>
+        $(document).ready(function () {
+            function CLickImage() {
+                $("#Image").click();
+            }
+            function ClickFileUpload() {
+                //$("#file-upload").click();
+            }
+            function SelectFileUpload(){
+                var file = document.getElementById('file-upload');
+                var image = document.getElementById('Image');
+                image = file.files[0];
+                console.log(image);
+            }
+        });
+
+    </script> *@
+    <script type="text/javascript">
+        $(document).ready(function () {
+            //gọi tỉnh thành
+            $.ajax({
+                url: '/Admin/APITinhThanh/GetProvince',
+                method:'POST',
+                dataType:'json',
+                success: function (data) {
+                    var html = "";
+                    console.log(data);
+                    for (var i = 0; i < data.length; i++) {
+                        //console.log(data[i].provinceId);
+                        html += `<option value="${data[i].provinceId +','+ data[i].name}">${data[i].name}</option>`;
+                        //console.log(html);
+                    }
+                    $('#province').append(html);
+                }
+            });
+
+            //gọi quận huyện
+            $('#province').on('change', function () {
+                $('#district').empty();
+                $('#ward').empty();
+                var id = $(this).val();
+                if (id) {
+                    $.ajax({
+                        url: '/Admin/APITinhThanh/GetDistricts',
+                        method: 'POST',
+                        dataType: 'json',
+                        data: { id:id },
+                        success: function (data) {
+                            var html = "";
+                            console.log(data);
+                            for (var i = 0; i < data.length; i++) {
+                                console.log(data[i].districtId);
+                                html += `<option value="${data[i].districtId + ',' + data[i].name}">${data[i].name}</option>`;
+                            }
+                            $('#district').append(html);
+                            
+                        }
+                    });
+                }
+            })
+
+            //lấy phường xã
+            $('#district').on('change', function () {
+                $('#ward').empty();
+                var IdWard = $(this).val();
+                if (IdWard){
+                    $.ajax({
+                        url: '/Admin/APITinhThanh/GetWards',
+                        method: 'POST',
+                        dataType: 'json',
+                        data: { IdWard: IdWard },
+                        success: function (data) {
+                            var html = "";
+                            console.log(data);
+                            for (var i = 0; i < data.length; i++) {
+                                console.log(data[i].districtId);
+                                html += `<option value="${data[i].wardsId + ',' + data[i].name}">${data[i].name}</option>`;
+                            }
+                            $('#ward').append(html);
+
+                        }
+                    });
+                }
+            })
+        });
+        // function ClickUpload() {
+        //     $("#Image").click();
+        // }
+        // function Upload() {
+        //     //alert('Bạn vừa click');
+        //     var file = document.getElementById('Image');
+        //     var image = document.getElementById('ImageChoose');
+        //     image = file.files[0];
+        //     console.log(image);
+        // }
+        function LoadData() {
+            getProvince();
+        }
+        LoadData();
+        // ham call api province
+        function getProvince() {
+            var selectHtmlProvince = "";
+            $.ajax({
+                url: 'https://vapi.vnappmob.com/api/province',
+                method: 'GET',
+                dataType: 'json',
+                success: function (response) {
+                    var provinces = response.results;
+                    console.log(response);
+                    for (var i = 0; i < provinces.length; i++) {
+                        $('.province').empty();
+                        selectHtmlProvince += `<option value="${provinces[i].province_id},${provinces[i].province_name}">
+                                                                    ${provinces[i].province_name}
+                                                                </option>`;
+
+                    }
+                    $('.province').append(selectHtmlProvince);
+                    // getDistricts(provinces[0].province_id)
+                    // $('.province').on('change', function () {
+                    //     var selectedProvinceId = $('.province').val().split(',');
+                    //     console.log('change click');
+                    //     getDistricts(selectedProvinceId[0]);
+                    // });
+
+                }, error: function (err) {
+                    console.log("error" + err);
+                }
+            })
+        }
+        //getProvince();
+        // ham call api districts
+        function getDistricts(provinceId) {
+            var selectHtmlDistrict = "";
+            $.ajax({
+                url: 'https://vapi.vnappmob.com/api/province/district/' + provinceId,
+                method: 'GET',
+                dataType: 'json',
+                success: function (response) {
+                    // Lấy danh sách quận/huyện từ response
+                    var districts = response.results;
+
+                    // Tạo HTML cho select box quận/huyện
+
+                    for (var i = 0; i < districts.length; i++) {
+                        $('.district').empty();
+                        selectHtmlDistrict += `<option value="${districts[i].district_id},${districts[i].district_name}">
+                                                                    ${districts[i].district_name}
+                                                                </option>`;
+                    }
+
+
+                    // Thêm select box quận/huyện vào một phần tử có id là "districtContainer"
+                    $('.district').append(selectHtmlDistrict);
+                    getWards(districts[0].district_id);
+                    //getWards(districts[0].district_name);
+                    $('.district').on('change', function () {
+
+                        var selectedDistrictId = $(this).val().split(',');
+                        console.log('change click');
+                        getWards(selectedDistrictId[0]);
+                    });
+                },
+                error: function (err) {
+                    console.log('Error: ' + err);
+                }
+            });
+        }
+
+        // ham call api ward
+        function getWards(districtId) {
+            var selectHtmlWard = "";
+            $.ajax({
+                url: 'https://vapi.vnappmob.com/api/province/ward/' + districtId,
+                method: 'GET',
+                dataType: 'json',
+                success: function (response) {
+                    // Lấy danh sách quận/huyện từ response
+                    var wards = response.results;
+                    console.log(wards);
+                    // Tạo HTML cho select box quận/huyện
+
+                    for (var i = 0; i < wards.length; i++) {
+                        $('.ward').empty();
+                        selectHtmlWard += `<option value="${wards[i].ward_id},${wards[i].ward_name}">
+                                                                ${wards[i].ward_name}
+                                                            </option>`;
+                    }
+
+
+                    // Thêm select box quận/huyện vào một phần tử có id là "districtContainer"
+                    $('.ward').append(selectHtmlWard);
+
+                },
+                error: function (err) {
+                    console.log('Error: ' + err);
+                }
+            });
+        }
+    </script>
+}

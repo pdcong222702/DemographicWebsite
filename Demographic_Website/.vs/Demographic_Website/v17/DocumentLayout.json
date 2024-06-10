@@ -1,0 +1,140 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\Project\\ASP\\Demographic_Website\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{EAB6F75E-2F7E-40EC-A568-9D8639BF7052}|Demographic_Website\\Demographic_Website.csproj|d:\\project\\asp\\demographic_website\\demographic_website\\areas\\admin\\views\\populations\\listpopulation.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{EAB6F75E-2F7E-40EC-A568-9D8639BF7052}|Demographic_Website\\Demographic_Website.csproj|solutionrelative:demographic_website\\areas\\admin\\views\\populations\\listpopulation.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EAB6F75E-2F7E-40EC-A568-9D8639BF7052}|Demographic_Website\\Demographic_Website.csproj|d:\\project\\asp\\demographic_website\\demographic_website\\areas\\admin\\controllers\\populationscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EAB6F75E-2F7E-40EC-A568-9D8639BF7052}|Demographic_Website\\Demographic_Website.csproj|solutionrelative:demographic_website\\areas\\admin\\controllers\\populationscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EAB6F75E-2F7E-40EC-A568-9D8639BF7052}|Demographic_Website\\Demographic_Website.csproj|d:\\project\\asp\\demographic_website\\demographic_website\\areas\\admin\\controllers\\recedentcebookletcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EAB6F75E-2F7E-40EC-A568-9D8639BF7052}|Demographic_Website\\Demographic_Website.csproj|solutionrelative:demographic_website\\areas\\admin\\controllers\\recedentcebookletcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EAB6F75E-2F7E-40EC-A568-9D8639BF7052}|Demographic_Website\\Demographic_Website.csproj|d:\\project\\asp\\demographic_website\\demographic_website\\areas\\admin\\views\\recedentcebooklet\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{EAB6F75E-2F7E-40EC-A568-9D8639BF7052}|Demographic_Website\\Demographic_Website.csproj|solutionrelative:demographic_website\\areas\\admin\\views\\recedentcebooklet\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EAB6F75E-2F7E-40EC-A568-9D8639BF7052}|Demographic_Website\\Demographic_Website.csproj|d:\\project\\asp\\demographic_website\\demographic_website\\models\\province.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EAB6F75E-2F7E-40EC-A568-9D8639BF7052}|Demographic_Website\\Demographic_Website.csproj|solutionrelative:demographic_website\\models\\province.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EAB6F75E-2F7E-40EC-A568-9D8639BF7052}|Demographic_Website\\Demographic_Website.csproj|d:\\project\\asp\\demographic_website\\demographic_website\\areas\\admin\\controllers\\apitinhthanhcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EAB6F75E-2F7E-40EC-A568-9D8639BF7052}|Demographic_Website\\Demographic_Website.csproj|solutionrelative:demographic_website\\areas\\admin\\controllers\\apitinhthanhcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EAB6F75E-2F7E-40EC-A568-9D8639BF7052}|Demographic_Website\\Demographic_Website.csproj|d:\\project\\asp\\demographic_website\\demographic_website\\areas\\admin\\views\\shared\\_adminlayout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{EAB6F75E-2F7E-40EC-A568-9D8639BF7052}|Demographic_Website\\Demographic_Website.csproj|solutionrelative:demographic_website\\areas\\admin\\views\\shared\\_adminlayout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{cce594b6-0c39-4442-ba28-10c64ac7e89f}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "ListPopulation.cshtml",
+              "DocumentMoniker": "D:\\Project\\ASP\\Demographic_Website\\Demographic_Website\\Areas\\Admin\\Views\\Populations\\ListPopulation.cshtml",
+              "RelativeDocumentMoniker": "Demographic_Website\\Areas\\Admin\\Views\\Populations\\ListPopulation.cshtml",
+              "ToolTip": "D:\\Project\\ASP\\Demographic_Website\\Demographic_Website\\Areas\\Admin\\Views\\Populations\\ListPopulation.cshtml",
+              "RelativeToolTip": "Demographic_Website\\Areas\\Admin\\Views\\Populations\\ListPopulation.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABUAAAANAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-06-09T15:03:18.176Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Province.cs",
+              "DocumentMoniker": "D:\\Project\\ASP\\Demographic_Website\\Demographic_Website\\Models\\Province.cs",
+              "RelativeDocumentMoniker": "Demographic_Website\\Models\\Province.cs",
+              "ToolTip": "D:\\Project\\ASP\\Demographic_Website\\Demographic_Website\\Models\\Province.cs",
+              "RelativeToolTip": "Demographic_Website\\Models\\Province.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAAdAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-08T08:29:49.922Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "PopulationsController.cs",
+              "DocumentMoniker": "D:\\Project\\ASP\\Demographic_Website\\Demographic_Website\\Areas\\Admin\\Controllers\\PopulationsController.cs",
+              "RelativeDocumentMoniker": "Demographic_Website\\Areas\\Admin\\Controllers\\PopulationsController.cs",
+              "ToolTip": "D:\\Project\\ASP\\Demographic_Website\\Demographic_Website\\Areas\\Admin\\Controllers\\PopulationsController.cs",
+              "RelativeToolTip": "Demographic_Website\\Areas\\Admin\\Controllers\\PopulationsController.cs",
+              "ViewState": "AQIAAPYAAAAAAAAAAAAAAPkAAAArAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-08T07:44:30.904Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "APITinhThanhController.cs",
+              "DocumentMoniker": "D:\\Project\\ASP\\Demographic_Website\\Demographic_Website\\Areas\\Admin\\Controllers\\APITinhThanhController.cs",
+              "RelativeDocumentMoniker": "Demographic_Website\\Areas\\Admin\\Controllers\\APITinhThanhController.cs",
+              "ToolTip": "D:\\Project\\ASP\\Demographic_Website\\Demographic_Website\\Areas\\Admin\\Controllers\\APITinhThanhController.cs",
+              "RelativeToolTip": "Demographic_Website\\Areas\\Admin\\Controllers\\APITinhThanhController.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAiwBMAAAAIAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-08T07:43:04.698Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "_AdminLayout.cshtml",
+              "DocumentMoniker": "D:\\Project\\ASP\\Demographic_Website\\Demographic_Website\\Areas\\Admin\\Views\\Shared\\_AdminLayout.cshtml",
+              "RelativeDocumentMoniker": "Demographic_Website\\Areas\\Admin\\Views\\Shared\\_AdminLayout.cshtml",
+              "ToolTip": "D:\\Project\\ASP\\Demographic_Website\\Demographic_Website\\Areas\\Admin\\Views\\Shared\\_AdminLayout.cshtml",
+              "RelativeToolTip": "Demographic_Website\\Areas\\Admin\\Views\\Shared\\_AdminLayout.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAcAAAA7AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-06-07T16:31:12.475Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "D:\\Project\\ASP\\Demographic_Website\\Demographic_Website\\Areas\\Admin\\Views\\RecedentceBooklet\\Index.cshtml",
+              "RelativeDocumentMoniker": "Demographic_Website\\Areas\\Admin\\Views\\RecedentceBooklet\\Index.cshtml",
+              "ToolTip": "D:\\Project\\ASP\\Demographic_Website\\Demographic_Website\\Areas\\Admin\\Views\\RecedentceBooklet\\Index.cshtml",
+              "RelativeToolTip": "Demographic_Website\\Areas\\Admin\\Views\\RecedentceBooklet\\Index.cshtml",
+              "ViewState": "AQIAAC8BAAAAAAAAAAAAADUBAABoAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-06-07T14:23:41.418Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "RecedentceBookletController.cs",
+              "DocumentMoniker": "D:\\Project\\ASP\\Demographic_Website\\Demographic_Website\\Areas\\Admin\\Controllers\\RecedentceBookletController.cs",
+              "RelativeDocumentMoniker": "Demographic_Website\\Areas\\Admin\\Controllers\\RecedentceBookletController.cs",
+              "ToolTip": "D:\\Project\\ASP\\Demographic_Website\\Demographic_Website\\Areas\\Admin\\Controllers\\RecedentceBookletController.cs",
+              "RelativeToolTip": "Demographic_Website\\Areas\\Admin\\Controllers\\RecedentceBookletController.cs",
+              "ViewState": "AQIAADoAAAAAAAAAAAAowHQAAAAIAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-07T14:23:08.522Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

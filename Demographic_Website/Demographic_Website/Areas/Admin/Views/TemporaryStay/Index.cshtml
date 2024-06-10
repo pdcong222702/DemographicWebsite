@@ -1,0 +1,360 @@
+﻿@model Demographic_Website.Models.TemporarilyStaying
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+
+    var name = ViewBag.findPopulationName;
+    var id = ViewBag.findPopulationId;
+    var dob = ViewBag.findPopulationDob;
+    var cccd = ViewBag.findPopulationCCCD;
+    var address = ViewBag.findPopulationAddress;
+
+    //lấy lại giá trị vừa truyền
+    List<TemporarilyStaying> stayingsFalse = ViewBag.lstTempStayFalse;
+    var lstStay = ViewData["lstTempStayTrue"] as List<TemporarilyStaying>;
+    List<TemporarilyStaying> stayingTrue = new List<TemporarilyStaying>();
+    if (lstStay != null) stayingTrue = lstStay;
+
+    //tạo mã giấy đăng khý tạm trú
+    //tạo danh sách để lưu các số đã tạo
+    HashSet<long> lstCodeStay = new HashSet<long>();
+    int minNumber = 1000000;
+    int maxNumber = 9999999;
+    Random random = new Random();
+    //tạo mã
+    long codeStay;
+    do
+    {
+        codeStay = random.Next(minNumber, maxNumber + 1);
+    } while (!lstCodeStay.Add(codeStay));
+}
+
+<div class="container contnetNK">
+    <div class="container">
+        <div class="headerContent mt-3">
+            <div class="backNK">
+                <a style="text-decoration: none;font-size: 16px;font-weight: bold;color: #1f1f1f">
+                    <i class='bx bx-arrow-back'></i>
+                    <span>Đăng kí tạm vắng</span>
+                </a>
+            </div>
+        </div>
+        <div class="mt-5" style="display: block;margin-left: 1000px">
+            <div>
+                <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#stayTrue">
+                    <i class='bx bx-book-content'></i>
+                    Giấy đăng ký tạm trú
+                </button>
+            </div>
+            <div class="mt-4">
+                <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#stayFalse">
+                    <span>
+                        <i class='bx bxs-book-content'></i>
+                        Giấy đăng ký tạm trú hết hạn
+                    </span>
+                </button>
+            </div>
+        </div>
+
+        <div class="modal" id="stayTrue">
+            <div class="modal-dialog">
+                <div class="modal-content">
+
+                    <!-- Modal Header -->
+                    <div class="modal-header">
+                        <h4 class="modal-title" style="margin-left: 100px;text-align: center">Thông tin giấy tạm trú</h4>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                    </div>
+
+                    <!-- Modal body -->
+                    <div class="modal-body" th:each="staying:${stayingNewTrue}">
+                        <div>
+                            @foreach (var item in stayingTrue)
+                            {
+                                if (item.IsNewStay == true)
+                                {
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <div class="infor">
+                                                <label>Họ tên: </label>
+                                                <p class="fw-bold">@item.PopulationName</p>
+                                            </div>
+                                            <div class="infor">
+                                                <label>Ngày sinh: </label>
+                                                <p class="fw-bold">@item.DateOfBirth</p>
+                                            </div>
+                                            <div class="infor">
+                                                <label>Địa chỉ thường trú: </label>
+                                                <p class="fw-bold">@item.BirthPlace</p>
+                                            </div>
+                                            <div class="infor">
+                                                <label>Mã giấy tạm trú: </label>
+                                                <p class="fw-bold">@item.DocumentCodeStaying</p>
+                                            </div>
+                                            <div class="infor">
+                                                <label>Số điện thoại đăng ký: </label>
+                                                <p class="fw-bold">@item.Phone</p>
+                                            </div>
+                                            <div class="infor">
+                                                <label>Địa chỉ tạm trú: </label>
+                                                <p class="fw-bold">@item.TemporaryAddress</p>
+                                            </div>
+                                            <div class="infor">
+                                                <label>Thời gian bắt đầu tạm trú: </label>
+                                                <p class="fw-bold">@item.FromDate</p>
+                                            </div>
+                                            <div class="infor">
+                                                <label>Lý do tạm trú: </label>
+                                                <p class="fw-bold">@item.Reason</p>
+                                            </div>
+                                            <p class="text-danger">Đây là giấy đăng ký tạm trú của bạn</p>
+                                        </div>
+                                    </div>
+                                }
+                            }
+                        </div>
+                    </div>
+
+                    <!-- Modal footer -->
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-outline-danger" data-bs-dismiss="modal">Close</button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="modal" id="stayFalse">
+            <div class="modal-dialog">
+                <div class="modal-content">
+
+                    <!-- Modal Header -->
+                    <div class="modal-header">
+                        <h4 class="modal-title" style="margin-left: 100px">Thông tin giấy tạm trú</h4>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                    </div>
+
+                    <!-- Modal body -->
+                    <div class="modal-body">
+                        <div>
+                            @foreach (var item in stayingTrue)
+                            {
+                                if (item.IsNewStay == false)
+                                {
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <div class="infor">
+                                                <label>Họ tên: </label>
+                                                <p class="fw-bold">@item.PopulationName</p>
+                                            </div>
+                                            <div class="infor">
+                                                <label>Ngày sinh: </label>
+                                                <p class="fw-bold">@item.DateOfBirth</p>
+                                            </div>
+                                            <div class="infor">
+                                                <label>Địa chỉ thường trú: </label>
+                                                <p class="fw-bold">@item.BirthPlace</p>
+                                            </div>
+                                            <div class="infor">
+                                                <label>Mã giấy tạm trú: </label>
+                                                <p class="fw-bold">@item.DocumentCodeStaying</p>
+                                            </div>
+                                            <div class="infor">
+                                                <label>Số điện thoại đăng ký: </label>
+                                                <p class="fw-bold">@item.Phone</p>
+                                            </div>
+                                            <div class="infor">
+                                                <label>Địa chỉ tạm trú: </label>
+                                                <p class="fw-bold">@item.TemporaryAddress</p>
+                                            </div>
+                                            <div class="infor">
+                                                <label>Thời gian bắt đầu tạm trú: </label>
+                                                <p class="fw-bold">@item.FromDate</p>
+                                            </div>
+                                            <div class="infor">
+                                                <label>Lý do tạm trú: </label>
+                                                <p class="fw-bold">@item.Reason</p>
+                                            </div>
+                                            <p class="text-danger">Giây đăng ký tạm trú này không còn hiệu lực</p>
+                                        </div>
+                                    </div>
+                                }
+                            }
+                        </div>
+                    </div>
+
+                    <!-- Modal footer -->
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-outline-danger" data-bs-dismiss="modal">Close</button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="container shadow rounded " style="margin-top: -140px;margin-left: 0px;width: 900px">
+            <form asp-area="Admin" asp-controller="TemporaryStay" asp-action="Index" 
+                  method="post" enctype="multipart/form-data">
+                <!--Header -->
+                <div class="d-flex justify-content-center align-items-center" style="margin-bottom: 15px;">
+                    <h4 class="mt-2">Đăng ký tạm trú</h4>
+                </div>
+                <!--body -->
+                <div class="body" style="display: block;justify-content: space-around">
+                    <div style="display: flex;justify-content:space-between">
+                        <div class="sameWith" style="margin-left: 38px">
+                            <div class="form-group row">
+                                <label class="col-sm-3 col-form-label">Họ tên</label>
+                                <div class="col-sm-9">
+                                    <select asp-for="PopulationName" class="form-control">
+                                        <option value="@name">@name</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-sm-3 col-form-label">Ngày sinh</label>
+                                <div class="col-sm-9">
+                                    <select class="form-control" asp-for="DateOfBirth">
+                                        <option value="@dob">@dob</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-sm-3 col-form-label">CMND/CCCD</label>
+                                <div class="col-sm-9">
+                                    <select class="form-control" asp-for="CitizenIdentificationCard">
+                                        <option value="@cccd">@cccd</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-sm-3 col-form-label">Địa chỉ thường trú</label>
+                                <div class="col-sm-9">
+                                    <select class="form-control" asp-for="BirthPlace">
+                                        <option value="@address">@address</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-sm-3 col-form-label">Giới tính</label>
+                                <div class="col-sm-9">
+                                    <select class="form-control" asp-for="Gender">
+                                        @if (ViewBag.findPopulationGender)
+                                        {
+                                            <option value="@ViewBag.findPopulationGender">Nam</option>
+                                        }else
+                                        {
+                                            <option value="@ViewBag.findPopulationGender">Nữ</option>
+                                        }
+                                        
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="sameWith" style="margin-left: 12px">
+                            <div class="form-group row">
+                                <label class="col-sm-3 col-form-label">Quốc tịch</label>
+                                <div class="col-sm-9">
+                                    <input type="text" class="form-control" asp-for="Nationality" placeholder="Quốc tịch">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-sm-3 col-form-label">Số điện thoại</label>
+                                <div class="col-sm-9">
+                                    <input type="text" class="form-control"asp-for="Phone" placeholder="Số điện thoại"
+                                           pattern="\d{10}"
+                                           title="Bạn chưa nhập đúng số điện thoại"
+                                           required>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-sm-3 col-form-label">Mã giấy tạm trú</label>
+                                <div class="col-sm-9">
+                                    <input type="text" id="randomInput" class="form-control"asp-for="DocumentCodeStaying"
+                                           placeholder="Mã giấy tạm trú" value="@codeStay" required>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-sm-3 col-form-label">Địa chỉ tạm trú</label>
+                                <div class="col-sm-9">
+                                    <input type="text" class="form-control"
+                                           asp-for="TemporaryAddress"
+                                           placeholder="Địa chỉ tạm trú" required>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-sm-3 col-form-label">Thời gian bắt đầu tạm trú</label>
+                                <div class="col-sm-9">
+                                    <input type="date" class="form-control" asp-for="FromDate"
+                                           required
+                                           placeholder="Thời gian bắt đầu tạm trú">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group row" style="width: 500px;margin-left:25px ">
+                        <label class="col-sm-3 col-form-label">Nội dung đề nghị</label>
+                        <div class="col-sm-9">
+                            <textarea class="form-control"style="width: 732px" asp-for="Reason"
+                                      placeholder="Nội dung đề nghị" required></textarea>
+                        </div>
+                    </div>
+                    <input type="hidden" asp-for="PopulationId" value="@id" />
+                </div>
+                <!--footer -->
+                <div class="mt-3" style="margin-bottom: 65px;margin-left: 650px;">
+                    <button type="button" style="margin-bottom: 10px" class="btn btn-primary"
+                            data-bs-toggle="modal" data-bs-target="#submitModal">
+                        Xác nhận
+                    </button>
+                    <a class="btn btn-danger" style="margin-bottom: 10px">Hủy bỏ</a>
+                </div>
+
+                <div class="modal" id="submitModal">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <!-- Modal Header -->
+                            <div class="modal-header bg-danger">
+                                <i class='bx bx-error' style="color: white;font-size: 20px"></i>
+                                <p class="modal-title" style="color: white;font-size: 20px">
+                                    Bạn có chắn chắn về những thông tin đã nhập
+                                </p>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                            </div>
+                            <!-- Modal footer -->
+                            <div class="modal-footer">
+                                <button type="button"
+                                        class="btn btn-danger" data-bs-dismiss="modal">
+                                    Quay lại
+                                </button>
+                                <button type="submit" class="btn btn-warning">Xác nhận</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+@section Style {
+    <style>
+        .form-group {
+            min-width: 250px
+        }
+
+        .col-form-label {
+            width: 250px
+        }
+
+        .sameWith {
+            width: 400px
+        }
+
+        .threeItem{
+            margin-left:25px;
+        }
+    </style>
+   
+}
+

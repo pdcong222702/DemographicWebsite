@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\Demographic_Website.props" />
+</Project>

@@ -1,0 +1,72 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Demographic_Website</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+          rel="stylesheet" />
+    <link rel="stylesheet" href="~/Demographic_Website.styles.css" asp-append-version="true" />
+    <style type="text/css">
+
+    </style>
+    @RenderSection("Style", required: false)
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light bg-primary">
+            <div class="container-fluid edit-header">
+                <a class="navbar-brand d-flex text-light justify-content-around" href="#">
+                    <i class="bx bxs-dashboard"></i>
+                    <i class="bx bxs-building-house"></i>
+                    <h4 style="font-weight: 700; font-size: 20px">Quản lý hộ khẩu</h4>
+                </a>
+                <div class="collapse navbar-collapse" id="navbarText">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link text-light" asp-area="Admin"
+                               asp-controller="RecedentceBooklet" asp-action="Index">Hộ khẩu</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-light" href="#">Nhân khẩu</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-light" asp-area="Admin"
+                                        asp-controller="StatisticalPopulation" asp-action="Index">Thống kê</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-light" href="#">Đăng ký tạm trú</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-light" href="#">Đăng ký tạm vắng</a>
+                        </li>
+                    </ul>
+                </div>
+                @* <form class="d-flex">
+                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-light" type="submit">Search</button>
+                </form> *@
+                
+                <div class="dropdown">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                        <i class='bx bxs-user-circle'></i>
+                    </button>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                        <li><a asp-area="Admin" asp-controller="Authencation" asp-action="Logout">Logout</a></li>
+                        <li></li>
+                        <li><a class="dropdown-item" href="#">Something else here</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    @RenderBody()
+    @await Component.InvokeAsync("Notyf")
+    @RenderSection("Scripts", required: false)
+</body>
+</html>

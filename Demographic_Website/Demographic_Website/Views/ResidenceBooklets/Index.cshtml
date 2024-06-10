@@ -1,0 +1,66 @@
+﻿@model IEnumerable<Demographic_Website.Models.ResidenceBooklet>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ResidenceBookletCode)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Address)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MoveDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MoveReason)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BookletArea)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CreateDate)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ResidenceBookletCode)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Address)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MoveDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MoveReason)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BookletArea)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CreateDate)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.ResidenceBookletId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.ResidenceBookletId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.ResidenceBookletId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

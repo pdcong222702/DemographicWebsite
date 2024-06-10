@@ -1,0 +1,126 @@
+﻿@model Demographic_Website.Models.TemporarilyStaying
+@{
+    ViewData["Title"] = "DangKyTamTru";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="container shadow rounded " style="margin-left: 0px;width: 900px">
+    <form asp-area="Admin" asp-controller="TemporaryStay" asp-action="Index"
+          method="post" enctype="multipart/form-data">
+        <!--Header -->
+        <div class="d-flex justify-content-center align-items-center" style="margin-bottom: 15px;">
+            <h4 class="mt-2">Đăng ký tạm trú</h4>
+        </div>
+        <!--body -->
+        <div class="body" style="display: block;justify-content: space-around">
+            <div style="display: flex;justify-content:space-between">
+                <div class="sameWith" style="margin-left: 38px">
+                    <div class="form-group row">
+                        <label class="col-sm-3 col-form-label">CCCD</label>
+                        <div class="col-sm-9">
+                            <input type="text" class="form-control" asp-for="Nationality" placeholder="CCCD">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-sm-3 col-form-label">CCCD</label>
+                        <div class="col-sm-9">
+                            <input type="text" class="form-control" asp-for="Nationality" placeholder="CCCD">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-sm-3 col-form-label">CCCD</label>
+                        <div class="col-sm-9">
+                            <input type="text" class="form-control" asp-for="Nationality" placeholder="CCCD">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-sm-3 col-form-label">CCCD</label>
+                        <div class="col-sm-9">
+                            <input type="text" class="form-control" asp-for="Nationality" placeholder="CCCD">
+                        </div>
+                    </div>
+                </div>
+                <div class="sameWith" style="margin-left: 12px">
+                    <div class="form-group row">
+                        <label class="col-sm-3 col-form-label">Quốc tịch</label>
+                        <div class="col-sm-9">
+                            <input type="text" class="form-control" asp-for="Nationality" placeholder="Quốc tịch">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-sm-3 col-form-label">Số điện thoại</label>
+                        <div class="col-sm-9">
+                            <input type="text" class="form-control" asp-for="Phone" placeholder="Số điện thoại"
+                                   pattern="\d{10}"
+                                   title="Bạn chưa nhập đúng số điện thoại"
+                                   required>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-sm-3 col-form-label">Mã giấy tạm trú</label>
+                        <div class="col-sm-9">
+                            <input type="text" id="randomInput" class="form-control" asp-for="DocumentCodeStaying"
+                                   placeholder="Mã giấy tạm trú" value="" required>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-sm-3 col-form-label">Địa chỉ tạm trú</label>
+                        <div class="col-sm-9">
+                            <input type="text" class="form-control"
+                                   asp-for="TemporaryAddress"
+                                   placeholder="Địa chỉ tạm trú" required>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-sm-3 col-form-label">Thời gian bắt đầu tạm trú</label>
+                        <div class="col-sm-9">
+                            <input type="date" class="form-control" asp-for="FromDate"
+                                   required
+                                   placeholder="Thời gian bắt đầu tạm trú">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group row" style="width: 500px;margin-left:25px ">
+                <label class="col-sm-3 col-form-label">Nội dung đề nghị</label>
+                <div class="col-sm-9">
+                    <textarea class="form-control" style="width: 732px" asp-for="Reason"
+                              placeholder="Nội dung đề nghị" required></textarea>
+                </div>
+            </div>
+            <input type="hidden" asp-for="PopulationId" value="" />
+        </div>
+        <!--footer -->
+        <div class="mt-3" style="margin-bottom: 65px;margin-left: 650px;">
+            <button type="button" style="margin-bottom: 10px" class="btn btn-primary"
+                    data-bs-toggle="modal" data-bs-target="#submitModal">
+                Xác nhận
+            </button>
+            <a class="btn btn-danger" style="margin-bottom: 10px">Hủy bỏ</a>
+        </div>
+
+        <div class="modal" id="submitModal">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <!-- Modal Header -->
+                    <div class="modal-header bg-danger">
+                        <i class='bx bx-error' style="color: white;font-size: 20px"></i>
+                        <p class="modal-title" style="color: white;font-size: 20px">
+                            Bạn có chắn chắn về những thông tin đã nhập
+                        </p>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                    </div>
+                    <!-- Modal footer -->
+                    <div class="modal-footer">
+                        <button type="button"
+                                class="btn btn-danger" data-bs-dismiss="modal">
+                            Quay lại
+                        </button>
+                        <button type="submit" class="btn btn-warning">Xác nhận</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+

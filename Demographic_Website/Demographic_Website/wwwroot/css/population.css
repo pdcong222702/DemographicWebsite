@@ -1,0 +1,51 @@
+﻿.form-add {
+    margin-top: 50px;
+    box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
+}
+
+.row {
+    margin-bottom: 20px;
+}
+
+.cardNK {
+    width: 500px;
+    margin-left:80px;
+}
+
+.under-card-body{
+    display: flex;
+}
+
+.card-img-top {
+    width: 150px;
+    background-color: red;
+    height: 150px;
+    object-fit: cover;
+    box-shadow: 0 0.5rem 1.5rem rgba(0, 0, 0, 0.1);
+}
+
+.condition {
+    margin: 40px 10px 10px 20px
+}
+.condition-p {
+    margin-left: 13px
+}
+.card-info-population {
+    display: block;
+    margin-left: 30px;
+    width: 250px;
+}
+
+.under-card-info {
+    box-shadow: 0 0.5rem 1.5rem rgba(0, 0, 0, 0.1);
+}
+.inforPopulation {
+    display: flex;
+}
+.suaNK {
+    margin: auto;
+}
+.condition-alert {
+    margin: 0 -45px 0 25px;
+    text-align: center;
+}
